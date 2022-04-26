@@ -13,18 +13,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <header>
-    <div class="topnav">
-      <a class="active" href="#home">HOME</a>
-      <a href="#news">OVER ONS</a>
-      <a href="#contact">LOCATION INFORMATION</a>
-      <a href="#about">CONTACT</a>
-    </div>
-  </header>
-
   <body class="index">
-    <div class="footer">
-      <p>Footer</p>
-    </div>
+    <?php include_once "includes/header.php" ?>
+    <main>
+    
+    </main>
+    <?php include_once "includes/footer.php" ?>
   </body>
 </html>

@@ -12,16 +12,18 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  height: 100vh;
+  width: 100%;
 }
 
-.topnav {
+nav {
   overflow: hidden;
   background-color: #4ca9d1c5;
   height: 60px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 20px 0px;
 }
 
-.topnav a {
+nav a {
   float: left;
   color: #362418;
   text-align: center;
@@ -30,12 +32,12 @@ body {
   font-size: 27px;
 }
 
-.topnav a:hover {
+nav a:hover {
   background-color: #479ec3c5;
   color: white;
 }
 
-.topnav a.active {
+nav a.active {
   color: #362418;
 }
 

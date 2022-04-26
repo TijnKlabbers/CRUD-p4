@@ -1,0 +1,49 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.index {
+  background-image: url(../img/boot2.jpg);
+  background-repeat: none;
+  background-size: cover;
+}
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #55c7bcb1;
+  height: 60px;
+}
+
+.topnav a {
+  float: left;
+  color: #362418;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 27px;
+}
+
+.topnav a:hover {
+  background-color: #64ccc3ae;
+  color: white;
+}
+
+.topnav a.active {
+  color: #362418;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #55c7bc88;
+  color: white;
+  text-align: center;
+}

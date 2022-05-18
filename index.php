@@ -7,27 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="css/main.css" />
-
-  <header>
-    <div id="menu-bar" class="fas fa-bars"></div>
-    <a href="#" class="logo"><span>T</span>ravel</a>
-
-    <nav class="navbar">
-      <a href="#home">home</a>
-      <a href="#over ons">about us</a>
-      <a href="#locaties">locations</a>
-      <a href="#contact">contact</a>
-
-    </nav>
-
-    <div class="icons">
-      <i class="fas fa-user" id="login-btn"></i>
-    </div>
-
-  </header>
 </head>
-
 <body>
+  <?php include_once "includes/header.php" ?>
 <video autoplay loop muted plays-inline class= "back-video">
   <source src="Beach.mp4" type="video/mp4">
 </video>
@@ -36,16 +18,41 @@
     <i class="fas fa-times" id="form-close"></i>
 
 
-    <form action="">
+    <form action="index.php" method="post">
       <h3>login</h3>
-      <input type="email" class="box" placeholder="enter your email">
-      <input type="password" class="box" placeholder="enter your password">
-      <input type="submit" value="login now" class="btn">
+      <input type="username" class="box" placeholder="enter your username" name="username">
+      <input type="password" class="box" placeholder="enter your password" name="password">
+      <input type="submit" value="login now" class="btn" name="loginButton">
       <input type="checkbox" id="remember">
       <label for="remember">remember me</label>
       <p>forget password? <a href="#">click here</a></p>
       <p>don't have an account? <a href="#">register now</a></p>
     </form>
+    <?php
+    
+    if(isset($_POST['loginButton'])){
+        $sql = "SELECT * FROM admin WHERE username = :username AND password = :password";
+        $stmt = $connect->prepare($sql);
+        $stmt->bindParam(":username", $_POST['username']);
+        $stmt->bindParam(":password", $_POST['password']);
+        $stmt->execute();
+        $resultCount = $stmt->rowCount();
+
+        // var_dump($resultCount);
+
+
+        if($resultCount > 0){
+            header("Location: index.php");
+        }
+        else{
+            header("Location: login.php");
+        }
+    }
+
+    if(isset($_POST['signupButton']))
+
+
+?>
 
   </div>
 

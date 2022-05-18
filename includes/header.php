@@ -1,11 +1,18 @@
 <header>
-  <?php
-    include_once "connect.php";
-  ?>
-    <nav>
-      <a href="index.php">HOME</a>
-      <a href="login.php">LOGIN</a>
-      <a href="reizen.php">LOCATIONS</a>
-      <a href="#about">CONTACT</a>
+  <?php include_once "includes/connect.php";?>
+    <div id="menu-bar" class="fas fa-bars"></div>
+    <a href="#" class="logo"><span>T</span>ravel</a>
+
+    <nav class="navbar">
+      <a href="#home">home</a>
+      <a href="#over ons">about us</a>
+      <a href="#locaties">locations</a>
+      <a href="#contact">contact</a>
+
     </nav>
-</header>
+
+    <div class="icons">
+      <i class="fas fa-user" id="login-btn"></i>
+    </div>
+
+  </header>

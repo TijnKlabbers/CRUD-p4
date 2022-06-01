@@ -6,7 +6,7 @@
     <nav class="navbar">
       <a href="#home">home</a>
       <a href="#over ons">about us</a>
-      <a href="#locaties">locations</a>
+      <a href="reizen.php">locations</a>
       <a href="#contact">contact</a>
 
     </nav>

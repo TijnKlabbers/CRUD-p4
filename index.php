@@ -1,86 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      complete responsive tour and travel agency website design tutorial
+    </title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="css/main.css" />
-</head>
-<body>
-  <?php include_once "includes/header.php" ?>
-<video autoplay loop muted plays-inline class= "back-video">
-  <source src="Beach.mp4" type="video/mp4">
-</video>
+ 
 
-  <div class="login-form-container">
-    <i class="fas fa-times" id="form-close"></i>
+    <!-- font awesome cdn link  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
 
 
-    <form action="index.php" method="post">
-      <h3>login</h3>
-      <input type="username" class="box" placeholder="enter your username" name="username">
-      <input type="password" class="box" placeholder="enter your password" name="password">
-      <input type="submit" value="login now" class="btn" name="loginButton">
-      <input type="checkbox" id="remember">
-      <label for="remember">remember me</label>
-      <p>forget password? <a href="#">click here</a></p>
-      <p>don't have an account? <a href="#">register now</a></p>
-    </form>
-    <?php
-    
-    if(isset($_POST['loginButton'])){
-        $sql = "SELECT * FROM admin WHERE username = :username AND password = :password";
-        $stmt = $connect->prepare($sql);
-        $stmt->bindParam(":username", $_POST['username']);
-        $stmt->bindParam(":password", $_POST['password']);
-        $stmt->execute();
-        $resultCount = $stmt->rowCount();
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- header section starts  -->
 
-        // var_dump($resultCount);
+    <header>
+      <div id="menu-bar" class="fas fa-bars"></div>
 
+      <a href="#" class="logo"><span>T</span>ravel</a>
 
-        if($resultCount > 0){
-            header("Location: index.php");
-        }
-        else{
-            header("Location: login.php");
-        }
-    }
+      <nav class="navbar">
+        <a href="index.php">home</a>
+        <a href="reizen.php">locations</a>
+        <a href="overOns.php">about us</a>
+        <a href="contact.php">contact</a>
+      </nav>
 
-    if(isset($_POST['signupButton']))
+      <div class="icons">
+        <i class="fas fa-search" id="search-btn"></i>
+        <i class="fas fa-user" id="login-btn"></i>
+      </div>
 
+      <form action="" class="search-bar-container">
+        <input type="search" id="search-bar" placeholder="search here..." />
+        <label for="search-bar" class="fas fa-search"></label>
+      </form>
+    </header>
 
-?>
+    <!-- header section ends -->
 
-  </div>
+    <!-- login form container  -->
 
-  <section class="home" id="home".>
-    <div class="content">
+    <div class="login-form-container">
+      <i class="fas fa-times" id="form-close"></i>
 
-    <div class="container">
-<form>
-
-  <div class="wrapper">
-    <p>search for your dream destination now!</p>
-    <div class="search-container">
-      <input type="text" class="search" placeholder="Location">
-      <input type="text" class="date-from" placeholder="what kind of travel">
-      <input type="text" class="date-to" placeholder="which month">
-      <button type="submit" class="button">Search</button>
+      <form action="">
+        <h3>login</h3>
+        <input type="email" class="box" placeholder="enter your email" />
+        <input type="password" class="box" placeholder="enter your password" />
+        <input type="submit" value="login now" class="btn" />
+        <input type="checkbox" id="remember" />
+        <label for="remember">remember me</label>
+        <p>forget password? <a href="#">click here</a></p>
+        <p>don't have and account? <a href="#">register now</a></p>
+      </form>
     </div>
-  </div>
-  
-  
-</form>
-  
 
-</div>
+    <!-- home section starts  -->
 
+    <section class="home" id="home">
+      <div class="content">
+        <h3>naam van ons bedrijf</h3>
+        <p>tekst bla bla bla bla</p>
+        <a href="#" class="btn">search now</a>
+      </div>
+
+
+
+      <div class="video-container">
+        <video
+          src="img/sea.mp4"
+          id="video-slider"
+          loop
+          autoplay
+          muted
+        ></video>
+      </div>
+    </section>
+
+    <!-- home section ends -->
   
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <script src="index.js"></script>
-</body>
+    <!-- book section starts  -->
 
+    <section class="book" id="book">
+      <h1 class="heading">
+        <span style="border: 1px solid #3da17b">book now </span>
+      </h1>
+
+      <div class="row">
+        <div class="image">
+          <img src="img/zand.jpg" alt="" />
+        </div>
+
+        <form action="">
+          <div class="inputBox">
+            <h3>where to</h3>
+            <input type="text" placeholder="place name" />
+          </div>
+          <div class="inputBox">
+            <h3>how many</h3>
+            <input type="number" placeholder="number of guests" />
+          </div>
+          <div class="inputBox">
+            <h3>arrivals</h3>
+            <input type="date" />
+          </div>
+          <div class="inputBox">
+            <h3>leaving</h3>
+            <input type="date" />
+          </div>
+          <input type="submit" class="btn" value="book now" />
+        </form>
+      </div>
+    </section>
+
+    <!-- book section ends -->
+
+   
+    <script src="script.js"></script>
+  </body>
 </html>

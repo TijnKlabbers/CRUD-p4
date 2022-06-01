@@ -21,28 +21,7 @@
   <body>
     <!-- header section starts  -->
 
-    <header>
-      <div id="menu-bar" class="fas fa-bars"></div>
-
-      <a href="#" class="logo"><span>T</span>ravel</a>
-
-      <nav class="navbar">
-        <a href="index.php">home</a>
-        <a href="reizen.php">locations</a>
-        <a href="overOns.php">about us</a>
-        <a href="contact.php">contact</a>
-      </nav>
-
-      <div class="icons">
-        <i class="fas fa-search" id="search-btn"></i>
-        <i class="fas fa-user" id="login-btn"></i>
-      </div>
-
-      <form action="" class="search-bar-container">
-        <input type="search" id="search-bar" placeholder="search here..." />
-        <label for="search-bar" class="fas fa-search"></label>
-      </form>
-    </header>
+    <?php include_once "includes/header.php" ?>
 
     <!-- header section ends -->
 
@@ -51,16 +30,33 @@
     <div class="login-form-container">
       <i class="fas fa-times" id="form-close"></i>
 
-      <form action="">
+      <form action="index.php" method="post">
         <h3>login</h3>
-        <input type="email" class="box" placeholder="enter your email" />
-        <input type="password" class="box" placeholder="enter your password" />
-        <input type="submit" value="login now" class="btn" />
+        <input type="username" class="box" placeholder="enter your username" name="username" />
+        <input type="password" class="box" placeholder="enter your password" name="password"/>
+        <input type="submit" value="login now" class="btn" name="loginButton"/>
         <input type="checkbox" id="remember" />
         <label for="remember">remember me</label>
         <p>forget password? <a href="#">click here</a></p>
-        <p>don't have and account? <a href="#">register now</a></p>
+        <p>don't have and account? <a href="register.php">register now</a></p>
       </form>
+      <?php
+          if(isset($_POST['loginButton'])){
+            $sql = "SELECT * FROM admin WHERE username = :username AND password = :password";
+            $stmt = $connect->prepare($sql);
+            $stmt->bindParam(":username", $_POST['username']);
+            $stmt->bindParam(":password", $_POST['password']);
+            $stmt->execute();
+            $result = $stmt->fetch();
+
+            if(count($result) > 0){
+              header("Location: locations.php");
+          }
+          else{
+              header("Location: login.php");
+          }
+          }
+      ?>
     </div>
 
     <!-- home section starts  -->

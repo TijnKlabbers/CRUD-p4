@@ -91,7 +91,7 @@
 
     <section class="book" id="book">
       <h1 class="heading">
-        <span style="border: 1px solid #3da17b">book now </span>
+        <span style="border: 1px solid #3da17b">search now </span>
       </h1>
 
       <div class="row">

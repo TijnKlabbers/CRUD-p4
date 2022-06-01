@@ -308,7 +308,7 @@ header .search-bar-container label:hover {
 }
 
 .book .row .image {
-  flex: 0.4 1 40rem;
+  flex: 0.05 1 40rem;
 }
 
 .book .row .image img {

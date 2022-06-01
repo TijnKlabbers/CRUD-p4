@@ -7,7 +7,10 @@
       complete responsive tour and travel agency website design tutorial
     </title>
 
- 
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
 
     <!-- font awesome cdn link  -->
     <link
@@ -15,7 +18,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
 
-
+    <!-- custom css file link  -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -65,65 +68,52 @@
 
     <!-- home section starts  -->
 
-    <section class="home" id="home">
-      <div class="content">
-        <h3>naam van ons bedrijf</h3>
-        <p>tekst bla bla bla bla</p>
-        <a href="#" class="btn">search now</a>
-      </div>
-
-
-
-      <div class="video-container">
-        <video
-          src="images/sea.mp4"
-          id="video-slider"
-          loop
-          autoplay
-          muted
-        ></video>
-      </div>
-    </section>
-
-    <!-- home section ends -->
   
-    <!-- book section starts  -->
 
-    <section class="book" id="book">
+    <!-- contact section starts  -->
+
+    <section class="contact" id="contact">
       <h1 class="heading">
-        <span style="border: 1px solid #3da17b">book now </span>
+        <span>c</span>
+        <span>o</span>
+        <span>n</span>
+        <span>t</span>
+        <span>a</span>
+        <span>c</span>
+        <span>t</span>
       </h1>
 
       <div class="row">
         <div class="image">
-          <img src="images/zand.jpg" alt="" />
+          <img src="images/contact-img.svg" alt="" />
         </div>
 
         <form action="">
           <div class="inputBox">
-            <h3>where to</h3>
-            <input type="text" placeholder="place name" />
+            <input type="text" placeholder="name" />
+            <input type="email" placeholder="email" />
           </div>
           <div class="inputBox">
-            <h3>how many</h3>
-            <input type="number" placeholder="number of guests" />
+            <input type="number" placeholder="number" />
+            <input type="text" placeholder="subject" />
           </div>
-          <div class="inputBox">
-            <h3>arrivals</h3>
-            <input type="date" />
-          </div>
-          <div class="inputBox">
-            <h3>leaving</h3>
-            <input type="date" />
-          </div>
-          <input type="submit" class="btn" value="book now" />
+          <textarea
+            placeholder="message"
+            name=""
+            id=""
+            cols="30"
+            rows="10"
+          ></textarea>
+          <input type="submit" class="btn" value="send message" />
         </form>
       </div>
     </section>
 
-    <!-- book section ends -->
+    <!-- contact section ends -->
 
-   
-    <script src="script.js"></script>
+  
+
+    <!-- custom js file link  -->
+    <script src="js/script.js"></script>
   </body>
 </html>

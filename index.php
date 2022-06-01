@@ -50,11 +50,11 @@
             $result = $stmt->fetch();
 
             if(count($result) > 0){
-              header("Location: locations.php");
-          }
-          else{
-              header("Location: login.php");
-          }
+              header("Location: reizen.php");
+            }
+            else{
+                header("Location: login.php");
+            }
           }
       ?>
     </div>

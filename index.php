@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      projectje
+      complete responsive tour and travel agency website design tutorial
+
     </title>
 
  
@@ -15,9 +16,6 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
 
 
     <link rel="stylesheet" href="css/style.css" />
@@ -29,13 +27,14 @@
     <header>
       <div id="menu-bar" class="fas fa-bars"></div>
 
-      <a href="#" class="logo"><span>T</span>errific <span>T</span>ravels</a>
+      <a href="#" class="logo"><span>T</span>ravel</a>
 
       <nav class="navbar">
-        <a href="index.php">HOME</a>
-        <a href="reizen.php">LOCATIONS</a>
-        <a href="overOns.php">ABOUT US</a>
-        <a href="contact.php">CONTACT</a>
+        <a href="index.php">home</a>
+        <a href="reizen.php">locations</a>
+        <a href="overOns.php">about us</a>
+        <a href="contact.php">contact</a>
+
       </nav>
 
       <div class="icons">
@@ -48,7 +47,6 @@
         <label for="search-bar" class="fas fa-search"></label>
       </form>
     </header>
-    <?php include_once "includes/header.php" ?>
 
     <!-- header section ends -->
 
@@ -57,15 +55,27 @@
     <div class="login-form-container">
       <i class="fas fa-times" id="form-close"></i>
 
-    <?php include_once "includes/loginForm.php" ?>
+
+      <form action="">
+        <h3>login</h3>
+        <input type="email" class="box" placeholder="enter your email" />
+        <input type="password" class="box" placeholder="enter your password" />
+        <input type="submit" value="login now" class="btn" />
+        <input type="checkbox" id="remember" />
+        <label for="remember">remember me</label>
+        <p>forget password? <a href="#">click here</a></p>
+        <p>don't have and account? <a href="#">register now</a></p>
+      </form>
+
     </div>
 
     <!-- home section starts  -->
 
     <section class="home" id="home">
       <div class="content">
-        <h3>Terrific Travels</h3>
-        <p>Adventure Awaits, Go Find It.</p>
+
+        <h3>naam van ons bedrijf</h3>
+        <p>tekst bla bla bla bla</p>
         <a href="#" class="btn">search now</a>
       </div>
 
@@ -73,7 +83,8 @@
 
       <div class="video-container">
         <video
-          src="images/sea.mp4"
+          src="img/sea.mp4"
+
           id="video-slider"
           loop
           autoplay
@@ -88,15 +99,18 @@
 
     <section class="book" id="book">
       <h1 class="heading">
-        <span style="border: 1px solid #3da17b">search now </span>
+        <span style="border: 1px solid #3da17b">book now </span>
+
       </h1>
 
       <div class="row">
         <div class="image">
-          <img src="images/zand.jpg" alt="" />
+
+          <img src="img/zand.jpg" alt="" />
         </div>
 
-        <form action="" method="get">
+        <form action="">
+
           <div class="inputBox">
             <h3>where to</h3>
             <input type="text" placeholder="place name" />

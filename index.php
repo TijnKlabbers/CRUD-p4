@@ -25,6 +25,7 @@
   <body>
     <!-- header section starts  -->
 
+
     <header>
       <div id="menu-bar" class="fas fa-bars"></div>
 
@@ -47,6 +48,7 @@
         <label for="search-bar" class="fas fa-search"></label>
       </form>
     </header>
+    <?php include_once "includes/header.php" ?>
 
     <!-- header section ends -->
 
@@ -55,16 +57,7 @@
     <div class="login-form-container">
       <i class="fas fa-times" id="form-close"></i>
 
-      <form action="">
-        <h3>login</h3>
-        <input type="email" class="box" placeholder="enter your email" />
-        <input type="password" class="box" placeholder="enter your password" />
-        <input type="submit" value="login now" class="btn" />
-        <input type="checkbox" id="remember" />
-        <label for="remember">remember me</label>
-        <p>forget password? <a href="#">click here</a></p>
-        <p>don't have and account? <a href="#">register now</a></p>
-      </form>
+    <?php include_once "includes/loginForm.php" ?>
     </div>
 
     <!-- home section starts  -->
@@ -103,7 +96,7 @@
           <img src="images/zand.jpg" alt="" />
         </div>
 
-        <form action="">
+        <form action="" method="get">
           <div class="inputBox">
             <h3>where to</h3>
             <input type="text" placeholder="place name" />

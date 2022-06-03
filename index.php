@@ -15,12 +15,39 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+
 
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <!-- header section starts  -->
 
+
+    <header>
+      <div id="menu-bar" class="fas fa-bars"></div>
+
+      <a href="#" class="logo"><span>T</span>errific <span>T</span>ravels</a>
+
+      <nav class="navbar">
+        <a href="index.php">HOME</a>
+        <a href="reizen.php">LOCATIONS</a>
+        <a href="overOns.php">ABOUT US</a>
+        <a href="contact.php">CONTACT</a>
+      </nav>
+
+      <div class="icons">
+        <i class="fas fa-search" id="search-btn"></i>
+        <i class="fas fa-user" id="login-btn"></i>
+      </div>
+
+      <form action="" class="search-bar-container">
+        <input type="search" id="search-bar" placeholder="search here..." />
+        <label for="search-bar" class="fas fa-search"></label>
+      </form>
+    </header>
     <?php include_once "includes/header.php" ?>
 
     <!-- header section ends -->
@@ -37,8 +64,8 @@
 
     <section class="home" id="home">
       <div class="content">
-        <h3>naam van ons bedrijf</h3>
-        <p>tekst bla bla bla bla</p>
+        <h3>Terrific Travels</h3>
+        <p>Adventure Awaits, Go Find It.</p>
         <a href="#" class="btn">search now</a>
       </div>
 

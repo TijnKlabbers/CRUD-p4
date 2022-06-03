@@ -18,9 +18,34 @@
 </head>
 
 <body>
+    
     <!-- header section starts  -->
 
-    <?php include_once "includes/header.php"; ?>
+
+    <header>
+        <div id="menu-bar" class="fas fa-bars"></div>
+
+        <a href="#" class="logo"><span>T</span>errific <span>T</span>ravels</a>
+
+        <nav class="navbar">
+        <a href="index.php">HOME</a>
+        <a href="reizen.php">LOCATIONS</a>
+        <a href="overOns.php">ABOUT US</a>
+        <a href="contact.php">CONTACT</a>
+      </nav>
+
+        <div class="icons">
+            <i class="fas fa-search" id="search-btn"></i>
+            <i class="fas fa-user" id="login-btn"></i>
+        </div>
+
+        <form action="" class="search-bar-container">
+            <input type="search" id="search-bar" placeholder="search here..." />
+            <label for="search-bar" class="fas fa-search"></label>
+        </form>
+    </header>
+  <?php include_once "includes/header.php"; ?>
+
 
     <!-- header section ends -->
 
@@ -49,18 +74,13 @@
 
     <section class="contact" id="contact">
         <h1 class="heading">
-            <span>c</span>
-            <span>o</span>
-            <span>n</span>
-            <span>t</span>
-            <span>a</span>
-            <span>c</span>
-            <span>t</span>
+            <span>contact</span>
+         
         </h1>
 
         <div class="row">
             <div class="image">
-                <img src="images/contact-img.svg" alt="" />
+                <img src="images/contact.jpg" alt="" />
             </div>
 
             <form action="contact.php" method="post">
@@ -97,7 +117,7 @@
 
 
     <!-- custom js file link  -->
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>

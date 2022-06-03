@@ -20,7 +20,32 @@
 <body>
     <!-- header section starts  -->
 
+
+    <header>
+        <div id="menu-bar" class="fas fa-bars"></div>
+
+        <a href="#" class="logo"><span>T</span>errific <span>T</span>ravels</a>
+
+        <nav class="navbar">
+        <a href="index.php">HOME</a>
+        <a href="reizen.php">LOCATIONS</a>
+        <a href="overOns.php">ABOUT US</a>
+        <a href="contact.php">CONTACT</a>
+      </nav>
+
+        <div class="icons">
+            <i class="fas fa-search" id="search-btn"></i>
+            <i class="fas fa-user" id="login-btn"></i>
+        </div>
+
+        <form action="" class="search-bar-container">
+            <input type="search" id="search-bar" placeholder="search here..." />
+            <label for="search-bar" class="fas fa-search"></label>
+        </form>
+    </header>
+
     <?php include_once "includes/header.php" ?>
+
 
     <!-- header section ends -->
 
@@ -162,7 +187,7 @@
             <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
             <!-- custom js file link  -->
-            <script src="js/script.js"></script>
+            <script src="script.js"></script>
 </body>
 
 </html>

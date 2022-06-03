@@ -20,6 +20,7 @@
 <body>
     <!-- header section starts  -->
 
+
     <header>
         <div id="menu-bar" class="fas fa-bars"></div>
 
@@ -42,6 +43,9 @@
             <label for="search-bar" class="fas fa-search"></label>
         </form>
     </header>
+
+    <?php include_once "includes/header.php" ?>
+
 
     <!-- header section ends -->
 

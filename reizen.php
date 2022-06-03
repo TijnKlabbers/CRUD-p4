@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -44,11 +45,13 @@
       </form>
     </header>
 
+
     <!-- header section ends -->
 
     <!-- login form container  -->
 
     <div class="login-form-container">
+
       <i class="fas fa-times" id="form-close"></i>
 
       <form action="">
@@ -70,6 +73,7 @@
     <!-- packages section starts  -->
 
     <section class="packages" id="packages">
+
       <h1 class="heading2">
         <span>locations</span>
  

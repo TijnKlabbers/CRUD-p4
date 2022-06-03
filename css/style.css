@@ -5,7 +5,9 @@
 }
 
 * {
+
   font-family: "Koulen", cursive;
+
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -256,7 +258,9 @@ header .search-bar-container label:hover {
 }
 
 .home .content h3 {
+
   font-size: 4.5rem;
+
   color: #fff;
   text-transform: uppercase;
   text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.1);
@@ -309,6 +313,7 @@ header .search-bar-container label:hover {
 
 .book .row .image {
   flex: 0.04 1 40rem;
+
 }
 
 .book .row .image img {
@@ -331,7 +336,9 @@ header .search-bar-container label:hover {
   padding: 1rem;
   border: 0.1rem solid rgba(0, 0, 0, 0.1);
   font-size: 1.7rem;
+
   color: #333;
+
   text-transform: none;
 }
 
@@ -367,7 +374,9 @@ header .search-bar-container label:hover {
 
 .packages .box-container .box .content h3 {
   font-size: 2rem;
+
   color: #333;
+
 }
 
 .packages .box-container .box .content h3 i {
@@ -523,7 +532,9 @@ header .search-bar-container label:hover {
 }
 
 .contact .row .image {
+
   flex: 1 1 35rem;
+
 }
 
 .contact .row .image img {

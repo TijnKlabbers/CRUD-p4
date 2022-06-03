@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
       complete responsive tour and travel agency website design tutorial
+
     </title>
 
  
@@ -16,10 +17,12 @@
     />
 
 
+
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <!-- header section starts  -->
+
 
     <header>
       <div id="menu-bar" class="fas fa-bars"></div>
@@ -31,6 +34,7 @@
         <a href="reizen.php">locations</a>
         <a href="overOns.php">about us</a>
         <a href="contact.php">contact</a>
+
       </nav>
 
       <div class="icons">
@@ -51,6 +55,7 @@
     <div class="login-form-container">
       <i class="fas fa-times" id="form-close"></i>
 
+
       <form action="">
         <h3>login</h3>
         <input type="email" class="box" placeholder="enter your email" />
@@ -61,12 +66,14 @@
         <p>forget password? <a href="#">click here</a></p>
         <p>don't have and account? <a href="#">register now</a></p>
       </form>
+
     </div>
 
     <!-- home section starts  -->
 
     <section class="home" id="home">
       <div class="content">
+
         <h3>naam van ons bedrijf</h3>
         <p>tekst bla bla bla bla</p>
         <a href="#" class="btn">search now</a>
@@ -77,6 +84,7 @@
       <div class="video-container">
         <video
           src="img/sea.mp4"
+
           id="video-slider"
           loop
           autoplay
@@ -92,14 +100,17 @@
     <section class="book" id="book">
       <h1 class="heading">
         <span style="border: 1px solid #3da17b">book now </span>
+
       </h1>
 
       <div class="row">
         <div class="image">
+
           <img src="img/zand.jpg" alt="" />
         </div>
 
         <form action="">
+
           <div class="inputBox">
             <h3>where to</h3>
             <input type="text" placeholder="place name" />

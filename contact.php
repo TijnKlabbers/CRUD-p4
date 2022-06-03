@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -43,11 +44,13 @@
       </form>
     </header>
 
+
     <!-- header section ends -->
 
     <!-- login form container  -->
 
     <div class="login-form-container">
+
       <i class="fas fa-times" id="form-close"></i>
 
       <form action="">
@@ -60,15 +63,17 @@
         <p>forget password? <a href="#">click here</a></p>
         <p>don't have and account? <a href="#">register now</a></p>
       </form>
+
     </div>
 
     <!-- home section starts  -->
 
-  
+
 
     <!-- contact section starts  -->
 
     <section class="contact" id="contact">
+
       <h1 class="heading">
         <span>c</span>
         <span>o</span>
@@ -103,6 +108,7 @@
           <input type="submit" class="btn" value="send message" />
         </form>
       </div>
+
     </section>
 
     <!-- contact section ends -->
@@ -113,3 +119,4 @@
     <script src="js/script.js"></script>
   </body>
 </html>
+

@@ -20,7 +20,7 @@
 <body>
     <!-- header section starts  -->
 
-    <? include_once "includes/header.php";?>
+    <?php include_once "includes/header.php"; ?>
 
     <!-- header section ends -->
 
@@ -63,18 +63,32 @@
                 <img src="images/contact-img.svg" alt="" />
             </div>
 
-            <form action="">
+            <form action="contact.php" method="post">
                 <div class="inputBox">
-                    <input type="text" placeholder="name" />
-                    <input type="email" placeholder="email" />
+                    <input type="text" placeholder="name" name="naam" required/>
+                    <input type="email" placeholder="email" name="email" required/>
                 </div>
                 <div class="inputBox">
-                    <input type="number" placeholder="number" />
-                    <input type="text" placeholder="subject" />
+                    <input type="number" placeholder="number" name="telefoonNummer" required oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"maxlength = "10"/>
+                    <input type="text" placeholder="subject" name="subject" required/>
                 </div>
-                <textarea placeholder="message" name="" id="" cols="30" rows="10"></textarea>
-                <input type="submit" class="btn" value="send message" />
+                <textarea placeholder="message" name="bericht" id="" cols="30" rows="10" required></textarea>
+                <input type="submit" class="btn" value="send message" name="send" />
             </form>
+            <?php 
+            if(isset($_POST['send'])){
+                $sql = "INSERT INTO contact (naam, email, bericht, telefoonNummer, subject)
+                VALUES (:naam, :email, :bericht, :telefoonNummer, :subject)";
+
+                $stmt = $connect->prepare($sql);
+                $stmt->bindParam(":naam", $_POST['naam']);
+                $stmt->bindParam(":email", $_POST['email']);
+                $stmt->bindParam(":bericht", $_POST['bericht']);
+                $stmt->bindParam(":telefoonNummer", $_POST['telefoonNummer']);
+                $stmt->bindParam(":subject", $_POST['subject']);
+                $stmt->execute();
+            }
+            ?> 
         </div>
     </section>
 

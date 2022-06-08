@@ -35,6 +35,7 @@ section {
 .heading {
   text-align: center;
   padding: 2.5rem 0;
+  margin-top: 90px;
 }
 
 .heading span {

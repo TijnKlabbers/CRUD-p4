@@ -15,7 +15,7 @@
             $stmt->bindParam(":username", $_POST['username']);
             $stmt->bindParam(":password", $_POST['password']);
             $stmt->execute();
-            $result = $stmt->fetch();
+            $result = $stmt->fetchAll();
 
             if(count($result) > 0){
               header("Location: reizen.php");

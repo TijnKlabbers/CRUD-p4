@@ -85,8 +85,9 @@
         <span>locations</span>
  
       </h1>
-<?php foreach ($result as $item){ ?> 
       <div class="box-container">
+<?php foreach ($result as $item){ ?> 
+
         <div class="box">
           <img src="img/paris.jpg" alt="" />
           <div class="content">
@@ -104,9 +105,9 @@
             <div class="price">$<?php echo $item['price'] ?></div>
             <a href="#" class="btn">book now</a>
           </div>
-        </div>
+      </div>  
         <?php } ?>
-
+</div>
 
     <!-- packages section ends -->
 

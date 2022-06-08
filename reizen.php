@@ -35,19 +35,22 @@
   
     }
     elseif(isset($_GET['bookNow'])){
+      $searchQuery = '%'.$_GET['destination'].'%';
 
-      $sql = "SELECT * FROM flights WHERE destination LIKE CONCAT('%', :destnation, '%')
-
-      AND persons LIKE (:persons)
-      AND startDate LIKE (:startDate)
-      AND endDate LIKE (:endDate)";
+      $sql = "SELECT * FROM flights WHERE destination LIKE :destination
+      AND persons = :persons
+      AND startDate < :startDate
+      AND endDate > :endDate";
 
       $stmt = $connect->prepare($sql);
 
-      $stmt->bindParam(":destination", $_GET['destination']);
+      $startDateConverted = date("Y-m-d", strtotime($_GET['startDate']));
+      $endDateConverted = date("Y-m-d", strtotime($_GET['endDate']));
+
+      $stmt->bindParam(":destination", $searchQuery);
       $stmt->bindParam(":persons", $_GET['persons']);
-      $stmt->bindParam(":startDate", $_GET['startDate']);
-      $stmt->bindParam(":endDate", $_GET['endDate']);
+      $stmt->bindParam(":startDate", $startDateConverted);
+      $stmt->bindParam(":endDate", $endDateConverted);
 
     }
     else {
@@ -63,7 +66,7 @@
 
 
     <!-- header section ends -->
-
+    
     <!-- login form container  -->
 
     <div class="login-form-container">

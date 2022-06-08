@@ -15,9 +15,18 @@
             $stmt->bindParam(":username", $_POST['username']);
             $stmt->bindParam(":password", $_POST['password']);
             $stmt->execute();
-            $result = $stmt->fetchAll();
+            $result = $stmt->fetch();
 
-            if(count($result) > 0){
+            if($result && count($result) > 0){
+              if ($result['admin'] === 1) {
+                // sessiON-['admin'] = true;
+
+                // //sturen naar admin omgeving
+                //          } else {
+                // admin = false;
+
+                //sturen naar homepage
+              }
               header("Location: reizen.php");
             }
             else{

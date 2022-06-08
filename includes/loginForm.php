@@ -10,7 +10,7 @@
       </form>
       <?php
           if(isset($_POST['loginButton'])){
-            $sql = "SELECT * FROM admin WHERE username = :username AND password = :password";
+            $sql = "SELECT * FROM users WHERE username = :username AND password = :password";
             $stmt = $connect->prepare($sql);
             $stmt->bindParam(":username", $_POST['username']);
             $stmt->bindParam(":password", $_POST['password']);
@@ -18,10 +18,10 @@
             $result = $stmt->fetch();
 
             if(count($result) > 0){
-              header("Location: locations.php");
-          }
-          else{
-              header("Location: login.php");
-          }
+              header("Location: reizen.php");
+            }
+            else{
+              header("Location: index.php");
+            }
           }
       ?>

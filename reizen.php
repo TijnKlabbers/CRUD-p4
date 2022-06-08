@@ -179,6 +179,8 @@
             <a href="#" class="btn">book now</a>
           </div>
         </div>
+    </div>
+</secton>
 
 
 

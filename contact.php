@@ -16,7 +16,7 @@
 
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <!-- header section starts  -->
@@ -116,7 +116,7 @@
   
 
     <!-- custom js file link  -->
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
 

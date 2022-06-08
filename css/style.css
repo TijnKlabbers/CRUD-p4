@@ -1,12 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap");
 :root {
   --orange: #3da17b;
 }
 
 * {
-
-  font-family: "Koulen", cursive;
+  font-family: "Kdam Thmor Pro", sans-serif;
 
   margin: 0;
   padding: 0;
@@ -258,7 +256,6 @@ header .search-bar-container label:hover {
 }
 
 .home .content h3 {
-
   font-size: 4.5rem;
 
   color: #fff;
@@ -313,7 +310,6 @@ header .search-bar-container label:hover {
 
 .book .row .image {
   flex: 0.04 1 40rem;
-
 }
 
 .book .row .image img {
@@ -376,7 +372,6 @@ header .search-bar-container label:hover {
   font-size: 2rem;
 
   color: #333;
-
 }
 
 .packages .box-container .box .content h3 i {
@@ -532,9 +527,7 @@ header .search-bar-container label:hover {
 }
 
 .contact .row .image {
-
   flex: 1 1 35rem;
-
 }
 
 .contact .row .image img {

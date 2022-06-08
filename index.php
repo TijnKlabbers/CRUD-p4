@@ -51,8 +51,8 @@
     <section class="home" id="home">
       <div class="content">
 
-        <h3>naam van ons bedrijf</h3>
-        <p>tekst bla bla bla bla</p>
+        <h3>TERRIFIC TRAVEL</h3>
+        <p> Adventure Awaits, Go Find It.</p>
         <a href="#" class="btn">search now</a>
       </div>
 

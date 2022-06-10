@@ -1,7 +1,7 @@
 <form action="index.php" method="post">
         <h3>login</h3>
-        <input type="username" class="box" placeholder="enter your username" name="username" />
-        <input type="password" class="box" placeholder="enter your password" name="password"/>
+        <input type="username" class="box" placeholder="enter your username" name="username" required/>
+        <input type="password" class="box" placeholder="enter your password" name="password" required/>
         <input type="submit" value="login now" class="btn" name="loginButton"/>
         <input type="checkbox" id="remember" />
         <label for="remember">remember me</label>
@@ -18,7 +18,7 @@
             $result = $stmt->fetch();
 
             if($result && count($result) > 0){
-              if ($result['admin'] === 1) {
+              if ($result['admin'] == 1) {
                 // sessiON-['admin'] = true;
                 $_SESSION['admin'] = true;
                 header("Location: adminpanel.php");
@@ -29,7 +29,6 @@
 
                 //sturen naar homepage
               }
-              header("Location: reizen.php");
             }
             else{
               header("Location: index.php");

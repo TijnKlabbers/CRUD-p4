@@ -54,18 +54,29 @@
         <i class='bx bx-search' ></i>
       </div>
       <div class="profile-details">
+        <form action="adminpanel.php" method="post">
         <!--<img src="images/profile.jpg" alt="">-->
-        <span class="admin_name">Prem Shahi</span>
-        <i class='bx bx-chevron-down' ></i>
+      <button name="logout">Logout</button>
+      <?php if(isset($_POST['logout'])){
+        $_SESSION['admin'] = false;
+        header("Location: index.php");
+      } ?>
+    </form>
       </div>
     </nav>
-
+    <?php include_once "includes/connect.php";
+    $sql = "SELECT COUNT(flights_id) as total_flights FROM flights";
+    $stmt = $connect->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->fetch();
+    ?>
     <div class="home-content">
       <div class="overview-boxes">
         <div class="box">
           <div class="right-side">
             <div class="box-topic">Total travels</div>
-            <div class="number">9</div>
+            <div class="number"><?php echo $result ?></div>
+
             <div class="indicator">
             </div>
           </div>
@@ -103,7 +114,7 @@
             <ul class="details">
             </ul>
             <ul class="details">
-            <li class="topic">Customer</li>
+            <li class="topic">Location</li>
             <li><a href="#">Alex Doe</a></li>
             <li><a href="#">David Mart</a></li>
             <li><a href="#">Roe Parter</a></li>
@@ -127,7 +138,7 @@
             <li><a href="#">Delivered</a></li>
           </ul>
           <ul class="details">
-            <li class="topic">Total</li>
+            <li class="topic">Price</li>
             <li><a href="#">$204.98</a></li>
             <li><a href="#">$24.55</a></li>
             <li><a href="#">$25.88</a></li>

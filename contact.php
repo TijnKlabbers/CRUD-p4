@@ -21,7 +21,7 @@
   <body>
     <!-- header section starts  -->
 
-<?php include_once "includes/header.php" ?>
+  <?php include_once "includes/header.php" ?>
 
 
     <!-- header section ends -->

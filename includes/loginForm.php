@@ -18,7 +18,7 @@
             $result = $stmt->fetch();
 
             if($result && count($result) > 0){
-              if ($result['admin'] === 1) {
+              if ($result['admin'] == 1) {
                 // sessiON-['admin'] = true;
                 $_SESSION['admin'] = true;
                 header("Location: adminpanel.php");

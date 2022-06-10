@@ -18,6 +18,5 @@
 
   <form action="reizen.php" class="search-bar-container">
     <input type="search" id="search-bar" placeholder="search here..." name="locationItem"/>
-    <label for="search-bar" class="fas fa-search"></label>
   </form>
 </header>

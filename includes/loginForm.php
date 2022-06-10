@@ -20,8 +20,10 @@
             if($result && count($result) > 0){
               if ($result['admin'] === 1) {
                 // sessiON-['admin'] = true;
-
+                $_SESSION['admin'] = true;
+                header("Location: adminpanel.php");
                 // //sturen naar admin omgeving
+                
                 //          } else {
                 // admin = false;
 

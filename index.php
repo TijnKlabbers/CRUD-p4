@@ -33,7 +33,7 @@
       <i class="fas fa-times" id="form-close"></i>
 
 
-<?php include_once "includes/loginForm.php" ?>
+      <?php include_once "includes/loginForm.php" ?>
 
     </div>
 

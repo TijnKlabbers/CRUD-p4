@@ -9,6 +9,8 @@
     </title>
 
 
+    <link rel="stylesheet" href="css/style.css">
+
 
     <!-- font awesome cdn link  -->
     <link
@@ -22,28 +24,45 @@
   <body>
     <!-- header section starts  -->
 
-    <header>
-      <div id="menu-bar" class="fas fa-bars"></div>
+  <?php include_once "includes/header.php";
+    if(isset($_GET['locationItem'])){
 
-      <a href="#" class="logo"><span>T</span>ravel</a>
+      $sql = "SELECT * FROM flights WHERE destination LIKE CONCAT('%', :destination, '%')";
+  
+      $stmt = $connect->prepare($sql);
 
-      <nav class="navbar">
-        <a href="index.php">home</a>
-        <a href="reizen.php">locations</a>
-        <a href="overOns.php">about us</a>
-        <a href="contact.php">contact</a>
-      </nav>
+      $stmt->bindParam(":destination", $_GET['locationItem']);
+  
+    }
+    elseif(isset($_GET['bookNow'])){
+      $searchQuery = '%'.$_GET['destination'].'%';
 
-      <div class="icons">
-        <i class="fas fa-search" id="search-btn"></i>
-        <i class="fas fa-user" id="login-btn"></i>
-      </div>
+      $sql = "SELECT * FROM flights WHERE destination LIKE :destination
+      AND persons = :persons
+      AND startDate < :startDate
+      AND endDate > :endDate";
 
-      <form action="" class="search-bar-container">
-        <input type="search" id="search-bar" placeholder="search here..." />
-        <label for="search-bar" class="fas fa-search"></label>
-      </form>
-    </header>
+      $stmt = $connect->prepare($sql);
+
+      $startDateConverted = date("Y-m-d", strtotime($_GET['startDate']));
+      $endDateConverted = date("Y-m-d", strtotime($_GET['endDate']));
+
+      $stmt->bindParam(":destination", $searchQuery);
+      $stmt->bindParam(":persons", $_GET['persons']);
+      $stmt->bindParam(":startDate", $startDateConverted);
+      $stmt->bindParam(":endDate", $endDateConverted);
+
+    }
+    else {
+  
+      $sql = "SELECT * FROM flights";
+  
+      $stmt = $connect->prepare($sql);
+      
+    }
+  $stmt->execute();
+  $result = $stmt->fetchAll();
+  ?>
 
 
     <!-- header section ends -->
@@ -54,16 +73,7 @@
 
       <i class="fas fa-times" id="form-close"></i>
 
-      <form action="">
-        <h3>login</h3>
-        <input type="email" class="box" placeholder="enter your email" />
-        <input type="password" class="box" placeholder="enter your password" />
-        <input type="submit" value="login now" class="btn" />
-        <input type="checkbox" id="remember" />
-        <label for="remember">remember me</label>
-        <p>forget password? <a href="#">click here</a></p>
-        <p>don't have and account? <a href="#">register now</a></p>
-      </form>
+<?php include_once "includes/loginForm.php"; ?>
     </div>
 
    
@@ -78,15 +88,15 @@
         <span>locations</span>
  
       </h1>
-
       <div class="box-container">
+<?php foreach ($result as $item){ ?> 
+
         <div class="box">
           <img src="img/paris.jpg" alt="" />
           <div class="content">
-            <h3><i class="fas fa-map-marker-alt"></i> Paris</h3>
+            <h3><i class="fas fa-map-marker-alt"></i> <?php echo $item['destination'] ?></h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Veritatis, nam!
+              <?php echo $item['description'] ?>
             </p>
             <div class="stars">
               <i class="fas fa-star"></i>
@@ -95,94 +105,12 @@
               <i class="fas fa-star"></i>
               <i class="far fa-star"></i>
             </div>
-            <div class="price">$90.00 <span>$120.00</span></div>
+            <div class="price">$<?php echo $item['price'] ?></div>
             <a href="#" class="btn">book now</a>
           </div>
-        </div>
-
-        <div class="box">
-          <img src="img/london.jpg" alt="" />
-          <div class="content">
-            <h3><i class="fas fa-map-marker-alt"></i> London</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Veritatis, nam!
-            </p>
-            <div class="stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-            </div>
-            <div class="price">$90.00 <span>$120.00</span></div>
-            <a href="#" class="btn">book now</a>
-          </div>
-        </div>
-
-        <div class="box">
-          <img src="img/china.jpg" alt="" />
-          <div class="content">
-            <h3><i class="fas fa-map-marker-alt"></i> China</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Veritatis, nam!
-            </p>
-            <div class="stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-            </div>
-            <div class="price">$90.00 <span>$120.00</span></div>
-            <a href="#" class="btn">book now</a>
-          </div>
-        </div>
-
-        <div class="box">
-          <img src="img/egypt.jpg" alt="" />
-          <div class="content">
-            <h3><i class="fas fa-map-marker-alt"></i> Egypt</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Veritatis, nam!
-            </p>
-            <div class="stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-            </div>
-            <div class="price">$90.00 <span>$120.00</span></div>
-            <a href="#" class="btn">book now</a>
-          </div>
-        </div>
-
-        <div class="box">
-          <img src="img/spain.jpg" alt="" />
-          <div class="content">
-            <h3><i class="fas fa-map-marker-alt"></i> Spain</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Veritatis, nam!
-            </p>
-            <div class="stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-            </div>
-            <div class="price">$90.00 <span>$120.00</span></div>
-            <a href="#" class="btn">book now</a>
-          </div>
-        </div>
-    </div>
-</secton>
-
-
+      </div>  
+        <?php } ?>
+</div>
 
     <!-- packages section ends -->
 
@@ -190,6 +118,6 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
     <!-- custom js file link  -->
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

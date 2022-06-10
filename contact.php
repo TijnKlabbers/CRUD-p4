@@ -21,28 +21,7 @@
   <body>
     <!-- header section starts  -->
 
-    <header>
-      <div id="menu-bar" class="fas fa-bars"></div>
-
-      <a href="#" class="logo"><span>T</span>ravel</a>
-
-      <nav class="navbar">
-        <a href="index.php">home</a>
-        <a href="reizen.php">locations</a>
-        <a href="overOns.php">about us</a>
-        <a href="contact.php">contact</a>
-      </nav>
-
-      <div class="icons">
-        <i class="fas fa-search" id="search-btn"></i>
-        <i class="fas fa-user" id="login-btn"></i>
-      </div>
-
-      <form action="" class="search-bar-container">
-        <input type="search" id="search-bar" placeholder="search here..." />
-        <label for="search-bar" class="fas fa-search"></label>
-      </form>
-    </header>
+<?php include_once "includes/header.php" ?>
 
 
     <!-- header section ends -->
@@ -53,16 +32,7 @@
 
       <i class="fas fa-times" id="form-close"></i>
 
-      <form action="">
-        <h3>login</h3>
-        <input type="email" class="box" placeholder="enter your email" />
-        <input type="password" class="box" placeholder="enter your password" />
-        <input type="submit" value="login now" class="btn" />
-        <input type="checkbox" id="remember" />
-        <label for="remember">remember me</label>
-        <p>forget password? <a href="#">click here</a></p>
-        <p>don't have and account? <a href="#">register now</a></p>
-      </form>
+      <?php include_once "includes/loginForm.php" ?>
 
     </div>
 
@@ -89,24 +59,42 @@
           <img src="images/contact-img.svg" alt="" />
         </div>
 
-        <form action="">
-          <div class="inputBox">
-            <input type="text" placeholder="name" />
-            <input type="email" placeholder="email" />
-          </div>
-          <div class="inputBox">
-            <input type="number" placeholder="number" />
-            <input type="text" placeholder="subject" />
-          </div>
-          <textarea
-            placeholder="message"
-            name=""
-            id=""
-            cols="30"
-            rows="10"
-          ></textarea>
-          <input type="submit" class="btn" value="send message" />
-        </form>
+        <form action="contact.php" method="post">
+<div class="inputBox">
+  <input type="text" placeholder="name" name="naam" required/>
+  <input type="email" placeholder="email" name="email" required/>
+</div>
+<div class="inputBox">
+  <input type="number" placeholder="number" name="telefoonNummer" required/>
+  <input type="text" placeholder="subject" name="subject" required/>
+</div>
+<textarea
+  placeholder="message"
+  name="bericht"
+  id=""
+  cols="30"
+  rows="10"
+  required
+></textarea>
+<input type="submit" class="btn" value="send message" name="send"/>
+</form>
+<?php
+  if(isset($_POST['send'])){
+
+      $sql = "INSERT INTO contact (naam, email, telefoonNummer, bericht, subject)
+      VALUES (:naam, :email, :telefoonNummer, :bericht, :subject)";
+
+      $stmt = $connect->prepare($sql);
+
+      $stmt->bindParam(":naam", $_POST['naam']);
+      $stmt->bindParam(":email", $_POST['email']);
+      $stmt->bindParam(":telefoonNummer", $_POST['telefoonNummer']);
+      $stmt->bindParam(":subject", $_POST['subject']);
+      $stmt->bindParam(":bericht", $_POST['bericht']);
+      $stmt->execute();
+  }
+?>
+</div>
       </div>
 
     </section>

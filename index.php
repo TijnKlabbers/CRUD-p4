@@ -33,16 +33,7 @@
       <i class="fas fa-times" id="form-close"></i>
 
 
-      <form action="">
-        <h3>login</h3>
-        <input type="email" class="box" placeholder="enter your email" />
-        <input type="password" class="box" placeholder="enter your password" />
-        <input type="submit" value="login now" class="btn" />
-        <input type="checkbox" id="remember" />
-        <label for="remember">remember me</label>
-        <p>forget password? <a href="#">click here</a></p>
-        <p>don't have and account? <a href="#">register now</a></p>
-      </form>
+      <?php include_once "includes/loginForm.php" ?>
 
     </div>
 
@@ -86,26 +77,27 @@
           <img src="img/zand.jpg" alt="" />
         </div>
 
-        <form action="">
+        <form action="reizen.php" method="get">
 
           <div class="inputBox">
             <h3>where to</h3>
-            <input type="text" placeholder="place name" />
+            <input type="text" placeholder="place name" name="destination"/>
           </div>
           <div class="inputBox">
             <h3>how many</h3>
-            <input type="number" placeholder="number of guests" />
+            <input type="number" placeholder="number of guests" name="persons"/>
           </div>
           <div class="inputBox">
             <h3>arrivals</h3>
-            <input type="date" />
+            <input type="date" name="startDate"/>
           </div>
           <div class="inputBox">
             <h3>leaving</h3>
-            <input type="date" />
+            <input type="date" name="endDate"/>
           </div>
-          <input type="submit" class="btn" value="book now" />
+          <input type="submit" class="btn" value="book now" name="bookNow"/>
         </form>
+
       </div>
     </section>
 

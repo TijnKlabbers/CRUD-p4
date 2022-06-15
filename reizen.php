@@ -92,7 +92,7 @@
 <?php foreach ($result as $item){ ?> 
 
         <div class="box">
-          <img src="img/paris.jpg" alt="" />
+          <img src="<?php echo $item['image'] ?>" alt="" />
           <div class="content">
             <h3><i class="fas fa-map-marker-alt"></i> <?php echo $item['destination'] ?></h3>
             <p>

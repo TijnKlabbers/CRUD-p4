@@ -22,26 +22,8 @@
     <!-- header section starts  -->
 
     <header>
-        <div id="menu-bar" class="fas fa-bars"></div>
-
-        <a href="#" class="logo"><span>T</span>errific <span>T</span>ravels</a>
-
-        <nav class="navbar">
-        <a href="index.php">HOME</a>
-        <a href="reizen.php">LOCATIONS</a>
-        <a href="overOns.php">ABOUT US</a>
-        <a href="contact.php">CONTACT</a>
-      </nav>
-
-        <div class="icons">
-            <i class="fas fa-search" id="search-btn"></i>
-            <i class="fas fa-user" id="login-btn"></i>
-        </div>
-
-        <form action="" class="search-bar-container">
-            <input type="search" id="search-bar" placeholder="search here..." />
-            <label for="search-bar" class="fas fa-search"></label>
-        </form>
+    <?php include_once "includes/header.php";
+    ?>
     </header>
 
     <!-- header section ends -->
@@ -77,11 +59,14 @@
 
         <div class="row">
             <div class="image">
-                <img src="images/aarde.jpg" alt="" />
+                <img src="images/overOns.jpg" alt="" />
             </div>
 
             <form action="">
-             <p> we are terrific travel and we are one of the best travel agency's in the world.
+             <p class="tekst">Lorem ipsum dolor sit amet. Aut quidem odit At iste natus ea molestiae ipsum est ipsum omnis. Et alias maxime 33 necessitatibus mollitia aut voluptatibus dolor quo minima expedita ut deleniti veniam vel quasi voluptates. </p>
+             <p class="tekst">Quo optio dolorem et perferendis voluptas ut iste voluptates. Eos debitis dignissimos qui amet voluptatum quo sequi vero nam expedita libero sit velit ullam? Id architecto perspiciatis vel numquam ipsum qui quisquam iusto ut voluptate veniam ea Quis quasi. Aut voluptatem voluptatum eum consequatur asperiores ea libero perspiciatis ut rerum totam. </p>
+             <p class="tekst">Ut omnis esse ab dolorem esse ut commodi voluptate sed provident assumenda est quia quae id ducimus voluptatem. Sed consequatur internos qui nihil libero est tempore magni qui quam sint in rerum ratione. Et harum ipsam ut accusamus officia et officia quisquam qui quos repellat. </p>
+
                   </p>
             </form>
         </div>

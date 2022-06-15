@@ -42,9 +42,9 @@
     <section class="home" id="home">
       <div class="content">
 
-        <h3>TERRIFIC TRAVEL</h3>
+        <h3>TRAVEL POINT</h3>
         <p> Adventure Awaits, Go Find It.</p>
-        <a href="#" class="btn">search now</a>
+        <a href="#search" class="btn">search now</a>
       </div>
 
 
@@ -67,7 +67,7 @@
 
     <section class="book" id="book">
       <h1 class="heading">
-        <span style="border: 1px solid #3da17b">book now </span>
+        <span style="border: 1px solid #3da17b">search now </span>
 
       </h1>
 
@@ -77,7 +77,7 @@
           <img src="img/zand.jpg" alt="" />
         </div>
 
-        <form action="reizen.php" method="get">
+        <form id="search" action="reizen.php" method="get">
 
           <div class="inputBox">
             <h3>where to</h3>

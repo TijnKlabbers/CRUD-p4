@@ -70,43 +70,71 @@
     </form>
       </div>
     </nav>
-    <?php include_once "includes/connect.php";
-    $sql = "SELECT COUNT(flights_id) as total_flights FROM flights";
-    $stmt = $connect->prepare($sql);
-    $stmt->execute();
-    $result = $stmt->fetch();
-    ?>
+
+  
     <div class="home-content">
       <div class="overview-boxes">
+
+        <?php include_once "includes/connect.php";
+        $sql = "SELECT COUNT(flights_id) as total_flights FROM flights";
+        $stmt = $connect->prepare($sql);
+        $stmt->execute();
+        $totalTravels = $stmt->fetch();
+        ?>
         <div class="box">
           <div class="right-side">
             <div class="box-topic">Total travels</div>
+<<<<<<< HEAD
             <div class="number">9</div>
+=======
+            <div class="number"><?php echo $totalTravels['total_flights']; ?></div>
+>>>>>>> c70bdef54f17520178c739fa8ead9bd02ea19b80
 
             <div class="indicator">
             </div>
           </div>
         </div>
+
+        <?php
+        $sql = "SELECT COUNT(users_id) as total_users FROM users WHERE admin = 0";
+        $stmt = $connect->prepare($sql);
+        $stmt->execute();
+        $totalUsers = $stmt->fetch();
+        ?>
         <div class="box">
           <div class="right-side">
             <div class="box-topic">Total accounts</div>
-            <div class="number">0</div>
+            <div class="number"><?php echo $totalUsers['total_users']; ?></div>
             <div class="indicator">
             </div>
           </div>
         </div>
+
+        <?php 
+        $sql = "SELECT COUNT(contact_id) as total_message FROM contact";
+        $stmt = $connect->prepare($sql);
+        $stmt->execute();
+        $totalMessage = $stmt->fetch();
+        ?>
         <div class="box">
           <div class="right-side">
             <div class="box-topic">Total messages</div>
-            <div class="number">0</div>
+            <div class="number"><?php echo $totalMessage['total_message']; ?></div>
             <div class="indicator">
             </div>
           </div>
         </div>
+
+        <?php 
+        $sql = "SELECT COUNT(reviews_id) as total_reviews FROM reviews";
+        $stmt = $connect->prepare($sql);
+        $stmt->execute();
+        $totalReviews = $stmt->fetch();
+        ?>
         <div class="box">
           <div class="right-side">
             <div class="box-topic">Total reviews </div>
-            <div class="number">0</div>
+            <div class="number"><?php echo $totalReviews['total_reviews']; ?></div>
             <div class="indicator">
             </div>
           </div>
@@ -121,39 +149,29 @@
             </ul>
             <ul class="details">
             <li class="topic">Location</li>
-            <li><a href="#">Alex Doe</a></li>
-            <li><a href="#">David Mart</a></li>
-            <li><a href="#">Roe Parter</a></li>
-            <li><a href="#">Diana Penty</a></li>
-            <li><a href="#">Martin Paw</a></li>
-            <li><a href="#">Doe Alex</a></li>
-            <li><a href="#">Aiana Lexa</a></li>
-            <li><a href="#">Rexel Mags</a></li>
-             <li><a href="#">Tiana Loths</a></li>
+            <?php 
+            $sql = "SELECT destination, persons, price FROM flights LIMIT 9";
+            $stmt = $connect->prepare($sql);
+            $stmt->execute();
+            $flightsResult = $stmt->fetchAll();
+
+            foreach($flightsResult as $item){
+            ?>
+            <li><a href="#"><?php echo $item['destination']; ?></a></li>
+            <?php } ?>
           </ul>
           <ul class="details">
-            <li class="topic">Sales</li>
-            <li><a href="#">Delivered</a></li>
-            <li><a href="#">Pending</a></li>
-            <li><a href="#">Returned</a></li>
-            <li><a href="#">Delivered</a></li>
-            <li><a href="#">Pending</a></li>
-            <li><a href="#">Returned</a></li>
-            <li><a href="#">Delivered</a></li>
-             <li><a href="#">Pending</a></li>
-            <li><a href="#">Delivered</a></li>
+            <li class="topic">Persons</li>
+            <?php 
+            foreach($flightsResult as $item){ ?>
+            <li><a href="#"><?php echo $item['persons']; ?></a></li>
+            <?php } ?>
           </ul>
           <ul class="details">
             <li class="topic">Price</li>
-            <li><a href="#">$204.98</a></li>
-            <li><a href="#">$24.55</a></li>
-            <li><a href="#">$25.88</a></li>
-            <li><a href="#">$170.66</a></li>
-            <li><a href="#">$56.56</a></li>
-            <li><a href="#">$44.95</a></li>
-            <li><a href="#">$67.33</a></li>
-             <li><a href="#">$23.53</a></li>
-             <li><a href="#">$46.52</a></li>
+            <?php foreach($flightsResult as $item){ ?>
+            <li><a href="#"><?php echo $item['price']; ?></a></li>
+            <?php } ?>
           </ul>
           </div>
           <div class="button">

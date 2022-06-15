@@ -109,6 +109,45 @@
       <?php } ?>
     </div>
 
+<<<<<<< HEAD
+=======
+   
+
+    <!-- book section ends -->
+
+    <!-- packages section starts  -->
+
+    <section class="packages" id="packages">
+
+      <h1 class="heading2">
+        <span>locations</span>
+ 
+      </h1>
+      <div class="box-container">
+<?php foreach ($result as $item){ ?> 
+
+        <div class="box">
+          <img src="<?php echo $item['image'] ?>" alt="" />
+          <div class="content">
+            <h3><i class="fas fa-map-marker-alt"></i> <?php echo $item['destination'] ?></h3>
+            <p>
+              <?php echo $item['description'] ?>
+            </p>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <div class="price">$<?php echo $item['price'] ?></div>
+            <a href="#" class="btn">book now</a>
+          </div>
+      </div>  
+        <?php } ?>
+</div>
+
+>>>>>>> c70bdef54f17520178c739fa8ead9bd02ea19b80
     <!-- packages section ends -->
 
 

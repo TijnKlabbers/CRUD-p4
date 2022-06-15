@@ -11,6 +11,7 @@
      <link rel="stylesheet" href="css/adminPanel-locations.css" />
    </head>
 <body>
+  <?php include_once "includes/connect.php"; ?>
   <div class="sidebar">
     <div class="logo-details">
       <span class="logo_name">Travel Point</span>
@@ -71,16 +72,16 @@
             <ul class="details">
             </ul>
             <ul class="details">
-            <li class="topic">Customer</li>
-            <li><a href="#">Alex Doe</a></li>
-            <li><a href="#">David Mart</a></li>
-            <li><a href="#">Roe Parter</a></li>
-            <li><a href="#">Diana Penty</a></li>
-            <li><a href="#">Martin Paw</a></li>
-            <li><a href="#">Doe Alex</a></li>
-            <li><a href="#">Aiana Lexa</a></li>
-            <li><a href="#">Rexel Mags</a></li>
-             <li><a href="#">Tiana Loths</a></li>
+            <li class="topic">Username</li>
+            <?php
+            $sql = "SELECT * FROM users";
+            $stmt = $connect->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+
+            foreach($result as $item){ ?>
+            <li><a href="#"><?php echo $item['username'] ?></a></li>
+            <?php } ?>
           </ul>
           <ul class="details">
             <li class="topic">Sales</li>

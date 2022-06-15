@@ -1,84 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      complete responsive tour and travel agency website design tutorial
-    </title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    complete responsive tour and travel agency website design tutorial
+  </title>
 
-    <link
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+   <!-- font awesome cdn link  -->
+   <link
       rel="stylesheet"
-      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
 
+  <!-- custom css file link  -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
 
-
-    <!-- custom css file link  -->
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <!-- header section starts  -->
+<body>
+  <!-- header section starts  -->
 
   <?php include_once "includes/header.php" ?>
 
 
-    <!-- header section ends -->
+  <!-- header section ends -->
 
-    <!-- login form container  -->
+  <!-- login form container  -->
 
-    <div class="login-form-container">
+  <div class="login-form-container">
 
-      <i class="fas fa-times" id="form-close"></i>
+    <i class="fas fa-times" id="form-close"></i>
 
-      <?php include_once "includes/loginForm.php" ?>
+    <?php include_once "includes/loginForm.php" ?>
 
-    </div>
+  </div>
 
-    <!-- home section starts  -->
+  <!-- home section starts  -->
 
 
 
-    <!-- contact section starts  -->
+  <!-- contact section starts  -->
 
-    <section class="contact" id="contact">
+  <section class="contact" id="contact">
 
-      <h1 class="heading">
-        <span>c</span>
-        <span>o</span>
-        <span>n</span>
-        <span>t</span>
-        <span>a</span>
-        <span>c</span>
-        <span>t</span>
-      </h1>
+    <h1 class="heading">
+      <span>contact</span>
+
 
       <div class="row">
-        <div class="image">
-          <img src="images/contact-img.svg" alt="" />
-        </div>
-
         <form action="contact.php" method="post">
-<div class="inputBox">
-  <input type="text" placeholder="name" name="naam" required/>
-  <input type="email" placeholder="email" name="email" required/>
-</div>
-<div class="inputBox">
-  <input type="number" placeholder="number" name="telefoonNummer" required/>
-  <input type="text" placeholder="subject" name="subject" required/>
-</div>
-<textarea
-  placeholder="message"
-  name="bericht"
-  id=""
-  cols="30"
-  rows="10"
-  required
-></textarea>
-<input type="submit" class="btn" value="send message" name="send"/>
-</form>
-<?php
+          <div class="inputBox">
+            <input type="text" placeholder="name" name="naam" required />
+            <input type="email" placeholder="email" name="email" required />
+          </div>
+          <div class="inputBox">
+            <input type="number" placeholder="number" name="telefoonNummer" required />
+            <input type="text" placeholder="subject" name="subject" required />
+          </div>
+          <textarea placeholder="message" name="bericht" id="" cols="30" rows="10" required></textarea>
+          <input type="submit" class="btn" value="send message" name="send" />
+        </form>
+        <?php
   if(isset($_POST['send'])){
 
       $sql = "INSERT INTO contact (naam, email, telefoonNummer, bericht, subject)
@@ -94,17 +79,17 @@
       $stmt->execute();
   }
 ?>
-</div>
+      </div>
       </div>
 
-    </section>
+  </section>
 
-    <!-- contact section ends -->
+  <!-- contact section ends -->
 
-  
 
-    <!-- custom js file link  -->
-    <script src="script.js"></script>
-  </body>
+
+  <!-- custom js file link  -->
+  <script src="script.js"></script>
+</body>
+
 </html>
-

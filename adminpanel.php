@@ -41,6 +41,12 @@
             <span class="links_name">Bookings</span>
           </a>
         </li>
+        <li class="log_out">
+          <a href="#">
+            <i class='bx bx-log-out'></i>
+            <span class="links_name">Log out</span>
+          </a>
+        </li>
       </ul>
   </div>
   <section class="home-section">
@@ -75,7 +81,7 @@
         <div class="box">
           <div class="right-side">
             <div class="box-topic">Total travels</div>
-            <div class="number"><?php echo $result ?></div>
+            <div class="number">9</div>
 
             <div class="indicator">
             </div>

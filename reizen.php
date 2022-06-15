@@ -1,28 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      complete responsive tour and travel agency website design tutorial
-    </title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+  </title>
 
 
-    <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css">
 
 
-    <!-- font awesome cdn link  -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
+  <!-- font awesome cdn link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
-    <!-- custom css file link  -->
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <!-- header section starts  -->
+  <!-- custom css file link  -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <!-- header section starts  -->
 
   <?php include_once "includes/header.php";
     if(isset($_GET['locationItem'])){
@@ -65,59 +62,74 @@
   ?>
 
 
-    <!-- header section ends -->
+  <!-- header section ends -->
 
-    <!-- login form container  -->
+  <!-- login form container  -->
 
-    <div class="login-form-container">
+  <div class="login-form-container">
 
-      <i class="fas fa-times" id="form-close"></i>
+    <i class="fas fa-times" id="form-close"></i>
 
-<?php include_once "includes/loginForm.php"; ?>
+    <?php include_once "includes/loginForm.php"; ?>
+  </div>
+
+
+
+  <!-- book section ends -->
+
+  <!-- packages section starts  -->
+
+  <section class="packages" id="packages">
+
+    <h1 class="heading">
+      <span>LOCATIONS</span>
+
+    </h1>
+    <div class="box-container">
+      <?php foreach ($result as $item){ ?>
+
+      <div class="box">
+        <img src="img/paris.jpg" alt="" />
+        <div class="content">
+          <h3><i class="fas fa-map-marker-alt"></i> <?php echo $item['destination'] ?></h3>
+          <p>
+            <?php echo $item['description'] ?>
+          </p>
+          <ul class="rating">
+            <li class="rating-item" data-rate="1"></i>
+            <li class="rating-item" data-rate="2"></i>
+            <li class="rating-item" data-rate="3"></i>
+            <li class="rating-item" data-rate="4"></i>
+            <li class="rating-item active" data-rate="5"></i>
+          </ul>
+          <div class="price">$<?php echo $item['price'] ?></div>
+          <a href="#" class="btn">book now</a>
+        </div>
+      </div>
+      <?php } ?>
     </div>
-
-   
-
-    <!-- book section ends -->
-
-    <!-- packages section starts  -->
-
-    <section class="packages" id="packages">
-
-      <h1 class="heading2">
-        <span>locations</span>
- 
-      </h1>
-      <div class="box-container">
-<?php foreach ($result as $item){ ?> 
-
-        <div class="box">
-          <img src="img/paris.jpg" alt="" />
-          <div class="content">
-            <h3><i class="fas fa-map-marker-alt"></i> <?php echo $item['destination'] ?></h3>
-            <p>
-              <?php echo $item['description'] ?>
-            </p>
-            <div class="stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-            </div>
-            <div class="price">$<?php echo $item['price'] ?></div>
-            <a href="#" class="btn">book now</a>
-          </div>
-      </div>  
-        <?php } ?>
-</div>
 
     <!-- packages section ends -->
 
-   
+
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      const container = document.querySelector('.rating');
+      const items = container.querySelectorAll('rating-item')
+      container.onclick = e => {
+        const elClass = e.target.classList;
+        if (!elClass.contains('active')){
+          items.forEach(
+            item => item.classList.remove('active')
+          );
+          console.log(e.target.getAttribute("data-rate"));
+          elClass.add('active');
+        }
+      };
+    </script>
 
     <!-- custom js file link  -->
     <script src="script.js"></script>
-  </body>
+</body>
+
 </html>

@@ -82,7 +82,7 @@
             <li><a href="#">Rexel Mags</a></li>
              <li><a href="#">Tiana Loths</a></li>
           </ul>
-          <ul class="details">kj
+          <ul class="details">
             <li class="topic">Sales</li>
             <li><a href="#">Delivered</a></li>
             <li><a href="#">Pending</a></li>

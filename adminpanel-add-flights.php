@@ -10,9 +10,14 @@
     <?php include_once "includes/connect.php" ?>
     <form action="adminpanel-locations.php" method="post">
     <input type="text" name="destination" placeholder="destination">
-    <input type="text" name="description" placeholder="description">
+    <textarea name="description" cols="30" rows="10" placeholder="description"></textarea>
     <input type="number"  step="0.01" placeholder="price" name="price">
-    <input type="number" name="persons" placeholder="persons">
+    <select name="persons">
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+    </select>
     <input type="date" name="startDate">
     <input type="date" name="endDate">
     <input type="text" name="image" placeholder="image-URL">
@@ -39,5 +44,6 @@
         $stmt->execute();
     }
     ?>
+    <a href="adminpanel-locations.php">back</a>
 </body>
 </html>

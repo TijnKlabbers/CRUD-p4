@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="html2 " lang="en">
 
 <head>
   <meta charset="UTF-8" />
@@ -21,14 +21,14 @@
 </head>
 
 <body>
-  <!-- header section starts  -->
+  <!-- header  -->
 
   <?php include_once "includes/header.php" ?>
 
 
-  <!-- header section ends -->
+  <!-- header  -->
 
-  <!-- login form container  -->
+  <!-- login container  -->
 
   <div class="login-form-container">
 
@@ -38,11 +38,10 @@
 
   </div>
 
-  <!-- home section starts  -->
 
 
 
-  <!-- contact section starts  -->
+  <!-- contact  -->
 
   <section class="contact" id="contact">
 
@@ -84,7 +83,7 @@
 
   </section>
 
-  <!-- contact section ends -->
+  <!-- contact -->
 
 
 

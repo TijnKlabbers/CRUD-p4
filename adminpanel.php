@@ -12,9 +12,6 @@
    </head>
 <body>
   <div class="sidebar">
-    <div class="logo-details">
-      <span class="logo_name">Travel Point</span>
-    </div>
       <ul class="nav-links">
         <li>
           <a href="adminpanel.php" class="active">
@@ -53,7 +50,7 @@
     <nav>
       <div class="sidebar-button">
         <i class='bx bx-menu sidebarBtn'></i>
-        <span class="dashboard">Dashboard</span>
+        <a class="logo"><span>TRAVELPOINT</span></a>
       </div>
       <div class="search-box">
         <input type="text" placeholder="Search...">
@@ -84,11 +81,7 @@
         <div class="box">
           <div class="right-side">
             <div class="box-topic">Total travels</div>
-<<<<<<< HEAD
-            <div class="number">9</div>
-=======
             <div class="number"><?php echo $totalTravels['total_flights']; ?></div>
->>>>>>> c70bdef54f17520178c739fa8ead9bd02ea19b80
 
             <div class="indicator">
             </div>

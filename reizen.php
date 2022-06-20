@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>
+    Travel Point
   </title>
 
 
@@ -62,9 +63,9 @@
   ?>
 
 
-  <!-- header section ends -->
+  <!-- header  -->
 
-  <!-- login form container  -->
+  <!-- login  -->
 
   <div class="login-form-container">
 
@@ -75,9 +76,8 @@
 
 
 
-  <!-- book section ends -->
 
-  <!-- packages section starts  -->
+  <!-- locations  -->
 
   <section class="packages" id="packages">
 
@@ -100,7 +100,7 @@
             <li class="rating-item" data-rate="2"></i>
             <li class="rating-item" data-rate="3"></i>
             <li class="rating-item" data-rate="4"></i>
-            <li class="rating-item active" data-rate="5"></i>
+            <li class="rating-item" data-rate="5"></i>
           </ul>
           <div class="price">$<?php echo $item['price'] ?></div>
           <a href="#" class="btn">book now</a>
@@ -109,46 +109,13 @@
       <?php } ?>
     </div>
 
-<<<<<<< HEAD
-=======
    
 
-    <!-- book section ends -->
+    
 
-    <!-- packages section starts  -->
-
-    <section class="packages" id="packages">
-
-      <h1 class="heading2">
-        <span>locations</span>
- 
-      </h1>
-      <div class="box-container">
-<?php foreach ($result as $item){ ?> 
-
-        <div class="box">
-          <img src="<?php echo $item['image'] ?>" alt="" />
-          <div class="content">
-            <h3><i class="fas fa-map-marker-alt"></i> <?php echo $item['destination'] ?></h3>
-            <p>
-              <?php echo $item['description'] ?>
-            </p>
-            <div class="stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-            </div>
-            <div class="price">$<?php echo $item['price'] ?></div>
-            <a href="#" class="btn">book now</a>
-          </div>
-      </div>  
-        <?php } ?>
 </div>
 
->>>>>>> c70bdef54f17520178c739fa8ead9bd02ea19b80
-    <!-- packages section ends -->
+    <!-- locations-->
 
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>

@@ -77,6 +77,7 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 2rem 9%;
+  height: 70px;
 }
 
 header .logo {
@@ -92,8 +93,8 @@ header .logo span {
 
 header .navbar a {
   color: #fff;
-  font-size: 2rem;
-  margin: 0 0.8rem;
+  font-size: 18px;
+  margin: 0 4rem;
 }
 
 header .navbar a:hover {
@@ -283,6 +284,18 @@ header .search-bar-container label:hover {
   height: 100%;
   width: 100%;
   object-fit: cover;
+  padding-top: 45px;
+}
+
+.shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  background-color: #0000004a;
 }
 
 .home .controls {

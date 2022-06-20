@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-        projectje
+        Travel Point
     </title>
 
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
@@ -18,17 +18,17 @@
 </head>
 
 <body>
-    
-    <!-- header section starts  -->
+
+    <!-- header  -->
 
     <header>
-    <?php include_once "includes/header.php";
+        <?php include_once "includes/header.php";
     ?>
     </header>
 
-    <!-- header section ends -->
+    <!-- header -->
 
-    <!-- login form container  -->
+    <!-- login container  -->
 
     <div class="login-form-container">
         <i class="fas fa-times" id="form-close"></i>
@@ -45,16 +45,16 @@
         </form>
     </div>
 
-    <!-- home section starts  -->
 
 
 
-    <!-- contact section starts  -->
+
+    <!-- contact section   -->
 
     <section class="contact" id="contact">
         <h1 class="heading">
             <span>ABOUT US</span>
-         
+
         </h1>
 
         <div class="row">
@@ -63,16 +63,24 @@
             </div>
 
             <form action="">
-             <p class="tekst">Lorem ipsum dolor sit amet. Aut quidem odit At iste natus ea molestiae ipsum est ipsum omnis. Et alias maxime 33 necessitatibus mollitia aut voluptatibus dolor quo minima expedita ut deleniti veniam vel quasi voluptates. </p>
-             <p class="tekst">Quo optio dolorem et perferendis voluptas ut iste voluptates. Eos debitis dignissimos qui amet voluptatum quo sequi vero nam expedita libero sit velit ullam? Id architecto perspiciatis vel numquam ipsum qui quisquam iusto ut voluptate veniam ea Quis quasi. Aut voluptatem voluptatum eum consequatur asperiores ea libero perspiciatis ut rerum totam. </p>
-             <p class="tekst">Ut omnis esse ab dolorem esse ut commodi voluptate sed provident assumenda est quia quae id ducimus voluptatem. Sed consequatur internos qui nihil libero est tempore magni qui quam sint in rerum ratione. Et harum ipsam ut accusamus officia et officia quisquam qui quos repellat. </p>
+                <p class="tekst">Lorem ipsum dolor sit amet. Aut quidem odit At iste natus ea molestiae ipsum est ipsum
+                    omnis. Et alias maxime 33 necessitatibus mollitia aut voluptatibus dolor quo minima expedita ut
+                    deleniti veniam vel quasi voluptates. </p>
+                <p class="tekst">Quo optio dolorem et perferendis voluptas ut iste voluptates. Eos debitis dignissimos
+                    qui amet voluptatum quo sequi vero nam expedita libero sit velit ullam? Id architecto perspiciatis
+                    vel numquam ipsum qui quisquam iusto ut voluptate veniam ea Quis quasi. Aut voluptatem voluptatum
+                    eum consequatur asperiores ea libero perspiciatis ut rerum totam. </p>
+                <p class="tekst">Ut omnis esse ab dolorem esse ut commodi voluptate sed provident assumenda est quia
+                    quae id ducimus voluptatem. Sed consequatur internos qui nihil libero est tempore magni qui quam
+                    sint in rerum ratione. Et harum ipsam ut accusamus officia et officia quisquam qui quos repellat.
+                </p>
 
-                  </p>
+                </p>
             </form>
         </div>
     </section>
 
-    <!-- contact section ends -->
+    <!-- contact ends -->
 
 
 

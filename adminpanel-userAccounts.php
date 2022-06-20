@@ -107,6 +107,12 @@
              <li><a href="#">$23.53</a></li>
              <li><a href="#">$46.52</a></li>
           </ul>
+          <li class="log_out">
+          <a href="#">
+            <i class='bx bx-log-out'></i>
+            <span class="links_name">Log out</span>
+          </a>
+        </li>   
           </div>
         </div>
     </div>

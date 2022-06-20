@@ -2,7 +2,7 @@
   <?php include_once "includes/connect.php";?>
   <div id="menu-bar" class="fas fa-bars"></div>
 
-  <a href="#" class="logo"><span>TRAVEL</span><span></span>point</a>
+  <a href="index.php" class="logo"><span>TRAVEL</span><span></span>point</a>
 
   <nav class="navbar">
     <a href="index.php" >HOME</a>

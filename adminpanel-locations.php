@@ -3,8 +3,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <!--<title> Responsiive Admin Dashboard | CodingLab </title>-->
-    <link rel="stylesheet" href="style.css">
+    <!--<title> Responsiive Admin Dashboard | CodingLab </title>--> 
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -98,7 +97,7 @@
             <form action="adminpanel-locations.php" method="post">
             <?php foreach($result as $item){?>
             <input type="hidden" name="id" value="<?php echo $item['flights_id'] ?>">
-            <li><button name="delete">delete</button></li>
+            <li><button class="delete" name="delete">delete</button></li>
             <?php } 
             if(isset($_POST['delete'])){
             $sql = "DELETE FROM flights WHERE flights_id = :id";
@@ -111,7 +110,7 @@
             </form>
           </ul>
           </div>
-          <a href="adminpanel-add-flights.php">add</a>
+          <a class="add" href="adminpanel-add-flights.php">add</a>
         </div>
     </div>
   </section>

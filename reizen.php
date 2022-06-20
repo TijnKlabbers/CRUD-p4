@@ -70,7 +70,43 @@
 
     <i class="fas fa-times" id="form-close"></i>
 
-    <?php include_once "includes/loginForm.php"; ?>
+    <form action="reizen.php" method="post">
+        <h3>login</h3>
+        <input type="username" class="box" placeholder="enter your username" name="username" required/>
+        <input type="password" class="box" placeholder="enter your password" name="password" required/>
+        <input type="submit" value="login now" class="btn" name="loginButton"/>
+        <input type="checkbox" id="remember" />
+        <label for="remember">remember me</label>
+        <p>forget password? <a href="#">click here</a></p>
+        <p>don't have and account? <a href="register.php">register now</a></p>
+      </form>
+      <?php
+          if(isset($_POST['loginButton'])){
+            $sql = "SELECT * FROM users WHERE username = :username AND password = :password";
+            $stmt = $connect->prepare($sql);
+            $stmt->bindParam(":username", $_POST['username']);
+            $stmt->bindParam(":password", $_POST['password']);
+            $stmt->execute();
+            $result = $stmt->fetch();
+
+            if($result && count($result) > 0){
+              if ($result['admin'] == 1) {
+                // sessiON-['admin'] = true;
+                $_SESSION['admin'] = true;
+                header("Location: adminpanel.php");
+                // //sturen naar admin omgeving
+                
+                //          } else {
+                // admin = false;
+
+                //sturen naar homepage
+              }
+            }
+            else{
+              header("Location: index.php");
+            }
+          }
+      ?>
   </div>
 
 
@@ -109,45 +145,6 @@
       <?php } ?>
     </div>
 
-<<<<<<< HEAD
-=======
-   
-
-    <!-- book section ends -->
-
-    <!-- packages section starts  -->
-
-    <section class="packages" id="packages">
-
-      <h1 class="heading2">
-        <span>locations</span>
- 
-      </h1>
-      <div class="box-container">
-<?php foreach ($result as $item){ ?> 
-
-        <div class="box">
-          <img src="<?php echo $item['image'] ?>" alt="" />
-          <div class="content">
-            <h3><i class="fas fa-map-marker-alt"></i> <?php echo $item['destination'] ?></h3>
-            <p>
-              <?php echo $item['description'] ?>
-            </p>
-            <div class="stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-            </div>
-            <div class="price">$<?php echo $item['price'] ?></div>
-            <a href="#" class="btn">book now</a>
-          </div>
-      </div>  
-        <?php } ?>
-</div>
-
->>>>>>> c70bdef54f17520178c739fa8ead9bd02ea19b80
     <!-- packages section ends -->
 
 

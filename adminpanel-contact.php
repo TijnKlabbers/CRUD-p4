@@ -11,7 +11,7 @@
      <link rel="stylesheet" href="css/adminPanel-locations.css" />
    </head>
 <body>
-  <?php include_once "includes/connect.php"; ?>
+    <?php include_once "includes/connect.php"; ?>
   <div class="sidebar">
     <div class="logo-details">
       <span class="logo_name">Travel Point</span>
@@ -30,7 +30,8 @@
           </a>
         </li>
         <li>
-          <a href="adminpanel-userAccounts.php">
+        <a href="adminpanel-userAccounts.php">
+
             <i class='bx bx-list-ul' ></i>
             <span class="links_name">user accounts</span>
           </a>
@@ -64,54 +65,37 @@
       <div class="overview-boxes">
         </div>
 
+        <?php 
+        $sql = "SELECT * FROM contact";
+        $stmt = $connect->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        ?>
       <div class="sales-boxes">
         <div class="recent-sales box">
-          <div class="title">Travel locations</div>
+          <div class="title">Messages</div>
           <div class="sales-details">
             <ul class="details">
             </ul>
             <ul class="details">
-            <li class="topic">Location</li>
-            <?php
-            $sql = "SELECT * FROM flights";
-            $stmt = $connect->prepare($sql);
-            $stmt->execute();
-            $result = $stmt->fetchAll();
-            foreach($result as $item){?>
-            <li><a href="adminpanel-edit-flights.php?flights_id=<?php echo $item['flights_id'] ?>"><?php echo $item['destination']; ?></a></li>
+            <li class="topic">Name</li>
+            <?php foreach($result as $item){ ?>
+            <li><a href="#"><?php echo $item['naam'] ?></a></li>
             <?php } ?>
           </ul>
           <ul class="details">
-            <li class="topic">Persons</li>
-            <?php foreach($result as $item){ ?>
-            <li><a href="adminpanel-edit-flights.php?flights_id=<?php echo $item['flights_id'] ?>"><?php echo $item['persons'] ?></a></li>
-            <?php } ?>  
-          </ul>
-          <ul class="details">
-            <li class="topic">Price</li>
-            <?php foreach($result as $item){ ?>
-            <li><a href="adminpanel-edit-flights.php?flights_id=<?php echo $item['flights_id'] ?>"><?php echo $item['price'] ?></a></li>
+            <li class="topic">Email</li>
+            <?php foreach($result as $item){ ?> 
+            <li><a href="#"><?php echo $item['email'] ?></a></li>
             <?php } ?>
           </ul>
-          <ul>
-            <li class="topic">delete</li>
-            <form action="adminpanel-locations.php" method="post">
-            <?php foreach($result as $item){?>
-            <input type="hidden" name="id" value="<?php echo $item['flights_id'] ?>">
-            <li><button name="delete">delete</button></li>
-            <?php } 
-            if(isset($_POST['delete'])){
-            $sql = "DELETE FROM flights WHERE flights_id = :id";
-            $stmt = $connect->prepare($sql);
-            $stmt->bindParam(":id", $_POST['id']);
-            $stmt->execute();
-            header("Location: adminpanel-locations.php");
-            }
-            ?>
-            </form>
+          <ul class="details">
+            <li class="topic">Subject</li>
+            <?php foreach($result as $item){ ?> 
+            <li><a href="#"><?php echo $item['subject'] ?></a></li>
+            <?php } ?>
           </ul>
           </div>
-          <a href="adminpanel-add-flights.php">add</a>
         </div>
     </div>
   </section>
@@ -130,4 +114,3 @@ sidebarBtn.onclick = function() {
 
 </body>
 </html>
-

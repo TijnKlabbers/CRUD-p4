@@ -63,21 +63,72 @@
   ?>
 
 
-  <!-- header  -->
+ 
+  
 
   <!-- login  -->
+
+  <!-- header section ends -->
+
+  <!-- login form container  -->
+
 
   <div class="login-form-container">
 
     <i class="fas fa-times" id="form-close"></i>
 
+ 
     <?php include_once "includes/loginForm.php"; ?>
+
+    <form action="reizen.php" method="post">
+        <h3>login</h3>
+        <input type="username" class="box" placeholder="enter your username" name="username" required/>
+        <input type="password" class="box" placeholder="enter your password" name="password" required/>
+        <input type="submit" value="login now" class="btn" name="loginButton"/>
+        <input type="checkbox" id="remember" />
+        <label for="remember">remember me</label>
+        <p>forget password? <a href="#">click here</a></p>
+        <p>don't have and account? <a href="register.php">register now</a></p>
+      </form>
+      <?php
+          if(isset($_POST['loginButton'])){
+            $sql = "SELECT * FROM users WHERE username = :username AND password = :password";
+            $stmt = $connect->prepare($sql);
+            $stmt->bindParam(":username", $_POST['username']);
+            $stmt->bindParam(":password", $_POST['password']);
+            $stmt->execute();
+            $result = $stmt->fetch();
+
+            if($result && count($result) > 0){
+              if ($result['admin'] == 1) {
+                // sessiON-['admin'] = true;
+                $_SESSION['admin'] = true;
+                header("Location: adminpanel.php");
+                // //sturen naar admin omgeving
+                
+                //          } else {
+                // admin = false;
+
+                //sturen naar homepage
+              }
+            }
+            else{
+              header("Location: index.php");
+            }
+          }
+      ?>
   </div>
 
 
 
 
+
   <!-- locations  -->
+
+  <!-- book section ends -->
+
+  <!-- packages section starts  -->
+
 
   <section class="packages" id="packages">
 
@@ -100,7 +151,11 @@
             <li class="rating-item" data-rate="2"></i>
             <li class="rating-item" data-rate="3"></i>
             <li class="rating-item" data-rate="4"></i>
+ 
             <li class="rating-item" data-rate="5"></i>
+
+            <li class="rating-item active" data-rate="5"></i>
+
           </ul>
           <div class="price">$<?php echo $item['price'] ?></div>
           <a href="#" class="btn">book now</a>
@@ -109,14 +164,11 @@
       <?php } ?>
     </div>
 
-   
-
-    
-
 </div>
 
-    <!-- locations-->
+  
 
+    <!-- packages section ends -->
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>

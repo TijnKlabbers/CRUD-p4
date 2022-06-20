@@ -68,26 +68,42 @@
       <div class="image">
 
         <img src="img/zand.jpg" alt="" />
+  
       </div>
 
       <form id="search" action="reizen.php" method="get">
+      <?php 
+          $sql = "SELECT destination FROM flights";
+          $stmt = $connect->prepare($sql);
+          $stmt->execute();
+          $destinationResult = $stmt->fetchAll();
+          ?>
 
-        <div class="inputBox">
-          <h3>where to</h3>
-          <input type="text" placeholder="place name" name="destination" />
-        </div>
-        <div class="inputBox">
-          <h3>how many</h3>
-          <input type="number" placeholder="number of guests" name="persons" />
-        </div>
-        <div class="inputBox">
-          <h3>arrivals</h3>
-          <input type="date" name="startDate" />
-        </div>
-        <div class="inputBox">
-          <h3>leaving</h3>
-          <input type="date" name="endDate" />
-        </div>
+<div class="inputBox">
+            <h3>where to</h3>
+            <select name="destination">
+              <?php foreach($destinationResult as $item){ ?>
+              <option><?php echo $item['destination'] ?></option>
+                <?php } ?>
+            </select>
+          </div>
+          <div class="inputBox">
+            <h3>how many guests</h3>
+            <select name="persons">
+              <option>0</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+            </select>
+          </div>
+          <div class="inputBox">
+            <h3>arrivals</h3>
+            <input type="date" name="startDate"/>
+          </div>
+          <div class="inputBox">
+            <h3>leaving</h3>
+            <input type="date" name="endDate"/>
+          </div>
         <input type="submit" class="btn" value="book now" name="bookNow" />
       </form>
 
@@ -95,6 +111,7 @@
   </section>
 
   <!-- book section ends -->
+
 
   <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
   <script src="script.js"></script>

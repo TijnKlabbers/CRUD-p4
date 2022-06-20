@@ -5,7 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>
-    Travel Point
   </title>
 
 
@@ -71,7 +70,43 @@
 
     <i class="fas fa-times" id="form-close"></i>
 
-    <?php include_once "includes/loginForm.php"; ?>
+    <form action="reizen.php" method="post">
+        <h3>login</h3>
+        <input type="username" class="box" placeholder="enter your username" name="username" required/>
+        <input type="password" class="box" placeholder="enter your password" name="password" required/>
+        <input type="submit" value="login now" class="btn" name="loginButton"/>
+        <input type="checkbox" id="remember" />
+        <label for="remember">remember me</label>
+        <p>forget password? <a href="#">click here</a></p>
+        <p>don't have and account? <a href="register.php">register now</a></p>
+      </form>
+      <?php
+          if(isset($_POST['loginButton'])){
+            $sql = "SELECT * FROM users WHERE username = :username AND password = :password";
+            $stmt = $connect->prepare($sql);
+            $stmt->bindParam(":username", $_POST['username']);
+            $stmt->bindParam(":password", $_POST['password']);
+            $stmt->execute();
+            $result = $stmt->fetch();
+
+            if($result && count($result) > 0){
+              if ($result['admin'] == 1) {
+                // sessiON-['admin'] = true;
+                $_SESSION['admin'] = true;
+                header("Location: adminpanel.php");
+                // //sturen naar admin omgeving
+                
+                //          } else {
+                // admin = false;
+
+                //sturen naar homepage
+              }
+            }
+            else{
+              header("Location: index.php");
+            }
+          }
+      ?>
   </div>
 
 
@@ -108,11 +143,6 @@
       </div>
       <?php } ?>
     </div>
-
-   
-
-    
-
 </div>
 
     <!-- locations-->

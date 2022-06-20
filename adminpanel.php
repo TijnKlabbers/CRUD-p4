@@ -33,16 +33,28 @@
           </a>
         </li>
         <li>
-          <a href="adminpanel/adminpanel-bookedTravels.php">
+          <a href="adminpanel-bookedTravels.php">
             <i class='bx bx-pie-chart-alt-2' ></i>
             <span class="links_name">Bookings</span>
           </a>
         </li>
+        <li>
+          <a href="adminpanel-contact.php">
+            <i class='bx bx-pie-chart-alt-2' ></i>
+            <span class="links_name">Contact</span>
+          </a>
+        </li>
         <li class="log_out">
-          <a href="#">
+          <form action="adminpanel.php" method="post">
+          <button name="logout">
             <i class='bx bx-log-out'></i>
             <span class="links_name">Log out</span>
-          </a>
+          </button>
+        </form>
+          <?php if(isset($_POST['logout'])){
+          $_SESSION['admin'] = false;
+          header("Location: index.php");
+      } ?>
         </li>
       </ul>
   </div>
@@ -57,14 +69,7 @@
         <i class='bx bx-search' ></i>
       </div>
       <div class="profile-details">
-        <form action="adminpanel.php" method="post">
-        <!--<img src="images/profile.jpg" alt="">-->
-      <button name="logout">Logout</button>
-      <?php if(isset($_POST['logout'])){
-        $_SESSION['admin'] = false;
-        header("Location: index.php");
-      } ?>
-    </form>
+        <img src="images/profile.jpg" alt="">
       </div>
     </nav>
 
@@ -168,7 +173,7 @@
           </ul>
           </div>
           <div class="button">
-            <a href="#">See All</a>
+            <a href="adminpanel-locations.php">See All</a>
           </div>
         </div>
         <div class="top-sales box">

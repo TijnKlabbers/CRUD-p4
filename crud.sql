@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 10 jun 2022 om 11:36
+-- Gegenereerd op: 15 jun 2022 om 14:18
 -- Serverversie: 10.4.22-MariaDB
 -- PHP-versie: 8.1.1
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `crud`
 --
+CREATE DATABASE IF NOT EXISTS `crud` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `crud`;
 
 -- --------------------------------------------------------
 
@@ -77,9 +79,14 @@ CREATE TABLE `flights` (
 --
 
 INSERT INTO `flights` (`flights_id`, `description`, `price`, `startDate`, `endDate`, `persons`, `destination`, `image`) VALUES
-(1, 'text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in', '120.00', '2022-06-13', '2022-06-16', 3, 'Spain', 'img/spain'),
-(2, 'text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic', '130.00', '2022-06-20', '2022-06-30', 2, 'China', 'img/china.jpg'),
-(3, 'Text Ever Since The 1500s, When An Unknown Printer Took A Galley Of Type And Scrambled It To Make A Type Specimen Book. It Has Survived Not Only Five Centuries, But Also The Leap Into Electronic Typesetting, Remaining Essentially Unchanged. It Was Popularised In', '200.00', '2022-06-20', '2022-06-30', 2, 'paris', 'img/paris.jpg');
+(1, 'text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in', '120.00', '2022-06-13', '2022-06-16', 3, 'Spain', 'https://images.unsplash.com/photo-1495562569060-2eec283d3391?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'),
+(2, 'text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic', '130.00', '2022-06-20', '2022-06-30', 2, 'China', 'https://images.unsplash.com/photo-1508804052814-cd3ba865a116?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'),
+(3, 'Text Ever Since The 1500s, When An Unknown Printer Took A Galley Of Type And Scrambled It To Make A Type Specimen Book. It Has Survived Not Only Five Centuries, But Also The Leap Into Electronic Typesetting, Remaining Essentially Unchanged. It Was Popularised In', '200.00', '2022-06-20', '2022-06-30', 2, 'paris', 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=873&q=80'),
+(4, 'iojfewoiejoiejoifjoisjfoijseoifjsoeijfoisejfoijse', '100.00', '2022-06-21', '2022-06-23', 3, 'china', 'https://images.unsplash.com/photo-1508804052814-cd3ba865a116?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'),
+(5, 'iojfewoiejoiejoifjoisjfoijseoifjsoeijfoisejfoijse', '100.00', '2022-06-21', '2022-06-23', 3, 'china', 'https://images.unsplash.com/photo-1508804052814-cd3ba865a116?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'),
+(6, 'adfasdf', '10.00', '2022-06-15', '2022-06-18', 2, 'asfs', 'dsfsdf'),
+(7, 'adfasdf', '10.00', '2022-06-15', '2022-06-18', 2, 'asfs', 'dsfsdf'),
+(8, 'adfasdf', '10.00', '2022-06-15', '2022-06-18', 2, 'asfs', 'dsfsdf');
 
 -- --------------------------------------------------------
 
@@ -111,7 +118,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`users_id`, `username`, `password`, `admin`) VALUES
-(1, 'admin', 'admin', 1);
+(1, 'admin', 'admin', 1),
+(2, 'kelvin', 'kelvin', 0),
+(3, 'kelvin', 'kelvin', 0);
 
 --
 -- Indexen voor geëxporteerde tabellen
@@ -167,7 +176,7 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT voor een tabel `flights`
 --
 ALTER TABLE `flights`
-  MODIFY `flights_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `flights_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT voor een tabel `reviews`
@@ -179,7 +188,7 @@ ALTER TABLE `reviews`
 -- AUTO_INCREMENT voor een tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `users_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `users_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Beperkingen voor geëxporteerde tabellen

@@ -143,7 +143,7 @@
       </div>
       <?php } ?>
     </div>
-</div>
+      </section>
 
     <!-- locations-->
 

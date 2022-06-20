@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
 
+<<<<<<< HEAD
+=======
 
   <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -28,6 +30,49 @@
 
   <!-- login form container  -->
 
+      <form action="index.php" method="post">
+        <h3>login</h3>
+        <input type="username" class="box" placeholder="enter your username" name="username" required/>
+        <input type="password" class="box" placeholder="enter your password" name="password" required/>
+        <input type="submit" value="login now" class="btn" name="loginButton"/>
+        <input type="checkbox" id="remember" />
+        <label for="remember">remember me</label>
+        <p>forget password? <a href="#">click here</a></p>
+        <p>don't have and account? <a href="register.php">register now</a></p>
+      </form>
+      <?php
+          if(isset($_POST['loginButton'])){
+            $sql = "SELECT * FROM users WHERE username = :username AND password = :password";
+            $stmt = $connect->prepare($sql);
+            $stmt->bindParam(":username", $_POST['username']);
+            $stmt->bindParam(":password", $_POST['password']);
+            $stmt->execute();
+            $result = $stmt->fetch();
+
+            if($result && count($result) > 0){
+              if ($result['admin'] == 1) {
+                // sessiON-['admin'] = true;
+                $_SESSION['admin'] = true;
+                header("Location: adminpanel.php");
+                // //sturen naar admin omgeving
+                
+                //          } else {
+                // admin = false;
+
+                //sturen naar homepage
+              }
+              else{
+                $_SESSION['user_id'] = $result['id'];
+              }
+            }
+            else{
+              header("Location: index.php");
+            }
+          }
+      ?>
+>>>>>>> 37a92260eea9532518c60a4a7b1fe0a8f8da62a4
+
+
   <div class="login-form-container">
     <i class="fas fa-times" id="form-close"></i>
 
@@ -35,6 +80,12 @@
     <?php include_once "includes/loginForm.php" ?>
 
   </div>
+
+        <h3>TRAVEL POINT</h3>
+        <p> Adventure Awaits, Go Find It.</p>
+        <a href="#search" class="btn">search now</a>
+      </div>
+
 
   <!-- home section starts  -->
 
@@ -48,6 +99,7 @@
 
 
 
+
     <div class="video-container">
       <video src="images/sea2.mp4" id="video-slider" loop autoplay muted></video>
       <div class="shadow"></div>
@@ -55,12 +107,18 @@
     </div>
   </section>
 
+    <section class="book" id="book">
+      <h1 class="heading">
+        <span style="border: 1px solid #3da17b">search now </span>
+
+
 
   <!-- book section starts  -->
 
   <section class="book" id="book">
     <h1 class="heading">
       <span style="border: 1px solid #3da17b">search now </span>
+
 
     </h1>
 
@@ -72,7 +130,8 @@
       </div>
 
       <form id="search" action="reizen.php" method="get">
-      <?php 
+        <form id="search" action="reizen.php" method="get">
+          <?php 
           $sql = "SELECT destination FROM flights";
           $stmt = $connect->prepare($sql);
           $stmt->execute();
@@ -104,6 +163,34 @@
             <h3>leaving</h3>
             <input type="date" name="endDate"/>
           </div>
+          <input type="submit" class="btn" value="book now" name="bookNow"/>
+        </form>
+
+
+    <div class="row">
+      <div class="image">
+
+        <img src="img/zand.jpg" alt="" />
+      </div>
+
+      <form id="search" action="reizen.php" method="get">
+
+        <div class="inputBox">
+          <h3>where to</h3>
+          <input type="text" placeholder="place name" name="destination" />
+        </div>
+        <div class="inputBox">
+          <h3>how many</h3>
+          <input type="number" placeholder="number of guests" name="persons" />
+        </div>
+        <div class="inputBox">
+          <h3>arrivals</h3>
+          <input type="date" name="startDate" />
+        </div>
+        <div class="inputBox">
+          <h3>leaving</h3>
+          <input type="date" name="endDate" />
+        </div>
         <input type="submit" class="btn" value="book now" name="bookNow" />
       </form>
 
@@ -111,7 +198,6 @@
   </section>
 
   <!-- book section ends -->
-
 
   <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
   <script src="script.js"></script>

@@ -21,7 +21,10 @@
 </head>
 
 <body>
+
   <!-- header  -->
+  <!-- header section starts  -->
+
 
   <?php include_once "includes/header.php" ?>
 
@@ -33,6 +36,12 @@
   <div class="login-form-container">
 
     <i class="fas fa-times" id="form-close"></i>
+
+
+    <?php include_once "includes/loginForm.php" ?>
+
+  </div>
+
 
     <form action="contact.php" method="post">
         <h3>login</h3>
@@ -84,6 +93,17 @@
 
     <h1 class="heading">
       <span>contact</span>
+
+
+
+
+  <!-- contact section starts  -->
+
+  <section class="contact" id="contact">
+
+    <h1 class="heading">
+      <span>contact</span>
+
 
 
       <div class="row">

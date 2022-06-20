@@ -19,14 +19,23 @@
 
 <body>
 
+ 
     <!-- header  -->
 
     <header>
+<<<<<<< HEAD
 <<<<<<< HEAD
         <?php include_once "includes/header.php";
 =======
     <?php include_once "includes/header.php";
 >>>>>>> 9d0c4b91d7b71d6ec30184e9424ed22773c9939c
+=======
+        <?php include_once "includes/header.php";
+
+    <header>
+    <?php include_once "includes/header.php";
+ 
+>>>>>>> 37a92260eea9532518c60a4a7b1fe0a8f8da62a4
     ?>
     </header>
 
@@ -95,6 +104,10 @@
 
             <form action="">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 37a92260eea9532518c60a4a7b1fe0a8f8da62a4
                 <p class="tekst">Lorem ipsum dolor sit amet. Aut quidem odit At iste natus ea molestiae ipsum est ipsum
                     omnis. Et alias maxime 33 necessitatibus mollitia aut voluptatibus dolor quo minima expedita ut
                     deleniti veniam vel quasi voluptates. </p>
@@ -108,13 +121,21 @@
                 </p>
 
                 </p>
+<<<<<<< HEAD
 =======
+=======
+
+>>>>>>> 37a92260eea9532518c60a4a7b1fe0a8f8da62a4
              <p class="tekst">Lorem ipsum dolor sit amet. Aut quidem odit At iste natus ea molestiae ipsum est ipsum omnis. Et alias maxime 33 necessitatibus mollitia aut voluptatibus dolor quo minima expedita ut deleniti veniam vel quasi voluptates. </p>
              <p class="tekst">Quo optio dolorem et perferendis voluptas ut iste voluptates. Eos debitis dignissimos qui amet voluptatum quo sequi vero nam expedita libero sit velit ullam? Id architecto perspiciatis vel numquam ipsum qui quisquam iusto ut voluptate veniam ea Quis quasi. Aut voluptatem voluptatum eum consequatur asperiores ea libero perspiciatis ut rerum totam. </p>
              <p class="tekst">Ut omnis esse ab dolorem esse ut commodi voluptate sed provident assumenda est quia quae id ducimus voluptatem. Sed consequatur internos qui nihil libero est tempore magni qui quam sint in rerum ratione. Et harum ipsam ut accusamus officia et officia quisquam qui quos repellat. </p>
 
                   </p>
+<<<<<<< HEAD
 >>>>>>> 9d0c4b91d7b71d6ec30184e9424ed22773c9939c
+=======
+ 
+>>>>>>> 37a92260eea9532518c60a4a7b1fe0a8f8da62a4
             </form>
         </div>
     </section>

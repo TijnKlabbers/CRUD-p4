@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> 37a92260eea9532518c60a4a7b1fe0a8f8da62a4
 <html lang="en" dir="ltr">
 
 <head>
@@ -13,6 +17,22 @@
 
 <body>
 
+<<<<<<< HEAD
+=======
+
+<!-- Coding by CodingLab | www.codinglabweb.com-->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<title> Registration or Sign Up form in HTML CSS | CodingLab </title>-->
+    <link rel="stylesheet" href="css/register.css">
+    
+   </head>
+<body>
+  
+ 
+>>>>>>> 37a92260eea9532518c60a4a7b1fe0a8f8da62a4
   <div class="wrapper">
     <h2>Registration</h2>
     <form action="#">
@@ -36,5 +56,11 @@
     </form>
   </div>
 </body>
+<<<<<<< HEAD
+=======
+ 
+
+</html>
+>>>>>>> 37a92260eea9532518c60a4a7b1fe0a8f8da62a4
 
 </html>

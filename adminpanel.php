@@ -38,6 +38,13 @@
             <span class="links_name">Bookings</span>
           </a>
         </li>
+
+        <li class="log_out">
+          <a href="#">
+            <i class='bx bx-log-out'></i>
+            <span class="links_name">Log out</span>
+          </a>
+
         <li>
           <a href="adminpanel-contact.php">
             <i class='bx bx-pie-chart-alt-2' ></i>

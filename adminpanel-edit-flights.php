@@ -17,9 +17,9 @@
         <option>2</option>
         <option>3</option>
     </select>
-    <input name="startDate" type="date" name="startDate">
-    <input name="endDate" type="date" name="endDate">
-    <input name="image" type="text" name="image" placeholder="image-URL">
+    <input name="startDate" type="date" name="startDate" value="<?php echo $result['startDate'] ?>">
+    <input name="endDate" type="date" name="endDate" value="<?php echo $result['endDate'] ?>">
+    <input name="image" type="text" name="image" placeholder="image-URL" value="<?php echo $result['image'] ?>">
     <button type="submit" name="update">update</button>
 </form>
 <?php

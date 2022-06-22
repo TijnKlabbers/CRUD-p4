@@ -29,16 +29,35 @@
           </a>
         </li>
         <li>
-          <a href="adminpanel-userAccounts.php">
+        <a href="adminpanel-userAccounts.php">
+
             <i class='bx bx-list-ul' ></i>
             <span class="links_name">user accounts</span>
           </a>
         </li>
         <li>
-        <a href="adminpanel-bookedTravels.php">
+          <a href="adminpanel-bookedTravels.php">
             <i class='bx bx-pie-chart-alt-2' ></i>
             <span class="links_name">Bookings</span>
           </a>
+        </li>
+        <li>
+          <a href="adminpanel-contact.php">
+            <i class='bx bx-pie-chart-alt-2' ></i>
+            <span class="links_name">Contact</span>
+          </a>
+        </li>
+        <li class="log_out">
+          <form action="adminpanel.php" method="post">
+          <button name="logout">
+            <i class='bx bx-log-out'></i>
+            <span class="links_name">Log out</span>
+          </button>
+        </form>
+          <?php if(isset($_POST['logout'])){
+          $_SESSION['admin'] = false;
+          header("Location: index.php");
+      } ?>
         </li>
       </ul>
   </div>

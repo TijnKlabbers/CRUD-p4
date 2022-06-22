@@ -56,8 +56,9 @@
         </form>
           <?php if(isset($_POST['logout'])){
           $_SESSION['admin'] = false;
+          $_SESSION['users_id'] = false;
           header("Location: index.php");
-      } ?>
+          } ?>
         </li>
       </ul>
   </div>

@@ -54,9 +54,11 @@
             $result = $stmt->fetch();
 
             if($result && count($result) > 0){
+              
               if ($result['admin'] == 1) {
                 // sessiON-['admin'] = true;
                 $_SESSION['admin'] = true;
+                $_SESSION['users_id'] = $result['users_id'];
                 header("Location: adminpanel.php");
                 // //sturen naar admin omgeving
                 
@@ -64,6 +66,11 @@
                 // admin = false;
 
                 //sturen naar homepage
+              }
+              else{
+                $_SESSION['userss_id'] = $result['user_id'];
+                $userId = $result['users_id'];
+                header("Location: userpanel.php?user_id=" . $userId);
               }
             }
             else{

@@ -21,7 +21,7 @@
     <input type="date" name="startDate">
     <input type="date" name="endDate">
     <input type="text" name="image" placeholder="image-URL">
-    <input type="submit" name="add"/>
+    <button name="add">addButton</button>
     </form>
     <?php 
       if(isset($_POST['add'])){

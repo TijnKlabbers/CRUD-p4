@@ -8,7 +8,7 @@
 </head>
 <body>
     <?php include_once "includes/connect.php" ?>
-    <form action="adminpanel-locations.php" method="post">
+    <form action="#" method="post">
     <input type="text" name="destination" placeholder="destination">
     <textarea name="description" cols="30" rows="10" placeholder="description"></textarea>
     <input type="number"  step="0.01" placeholder="price" name="price">
@@ -21,7 +21,7 @@
     <input type="date" name="startDate">
     <input type="date" name="endDate">
     <input type="text" name="image" placeholder="image-URL">
-    <input type="submit" name="add"/>
+    <button name="add">addButton</button>
     </form>
     <?php 
       if(isset($_POST['add'])){
@@ -42,6 +42,8 @@
         $stmt->bindParam(":endDate", $endDateConverted);
         $stmt->bindParam(":image", $_POST['image']);
         $stmt->execute();
+    } else {
+        echo 'fiut';
     }
     ?>
     <a href="adminpanel-locations.php">back</a>

@@ -92,7 +92,11 @@ header .logo span {
 
 header .navbar a {
   color: #fff;
+<<<<<<< HEAD
   font-size: 16px;
+=======
+  font-size: 18px;
+>>>>>>> 338a311c063d4f3eba07332117dcbb28ecfdda1e
   margin: 0 4rem;
 }
 

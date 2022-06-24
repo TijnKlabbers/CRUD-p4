@@ -12,7 +12,7 @@
    </head>
 <body>
     <?php include_once "includes/connect.php"; ?>
-  <div class="sidebar">
+    <div class="sidebar">
     <div class="logo-details">
       <span class="logo_name">Travel Point</span>
     </div>
@@ -37,10 +37,28 @@
           </a>
         </li>
         <li>
-        <a href="adminpanel-bookedTravels.php">
+          <a href="adminpanel-bookedTravels.php">
             <i class='bx bx-pie-chart-alt-2' ></i>
             <span class="links_name">Bookings</span>
           </a>
+        </li>
+        <li>
+          <a href="adminpanel-contact.php">
+            <i class='bx bx-pie-chart-alt-2' ></i>
+            <span class="links_name">Contact</span>
+          </a>
+        </li>
+        <li class="log_out">
+          <form action="adminpanel.php" method="post">
+          <button name="logout">
+            <i class='bx bx-log-out'></i>
+            <span class="links_name">Log out</span>
+          </button>
+        </form>
+          <?php if(isset($_POST['logout'])){
+          $_SESSION['admin'] = false;
+          header("Location: index.php");
+      } ?>
         </li>
       </ul>
   </div>
@@ -80,19 +98,19 @@
             <ul class="details">
             <li class="topic">Name</li>
             <?php foreach($result as $item){ ?>
-            <li><a href="#"><?php echo $item['naam'] ?></a></li>
+            <li><a href="adminpanel-massages.php?contact_id=<?php echo $item['contact_id'] ?>"><?php echo $item['naam'] ?></a></li>
             <?php } ?>
           </ul>
           <ul class="details">
             <li class="topic">Email</li>
             <?php foreach($result as $item){ ?> 
-            <li><a href="#"><?php echo $item['email'] ?></a></li>
+            <li><a href="adminpanel-massages.php?contact_id=<?php echo $item['contact_id'] ?>"><?php echo $item['email'] ?></a></li>
             <?php } ?>
           </ul>
           <ul class="details">
             <li class="topic">Subject</li>
             <?php foreach($result as $item){ ?> 
-            <li><a href="#"><?php echo $item['subject'] ?></a></li>
+            <li><a href="adminpanel-massages.php?contact_id=<?php echo $item['contact_id'] ?>"><?php echo $item['subject'] ?></a></li>
             <?php } ?>
           </ul>
           </div>

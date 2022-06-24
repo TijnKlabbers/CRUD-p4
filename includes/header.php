@@ -11,9 +11,23 @@
     <a href="contact.php">CONTACT</a>
   </nav>
 
+  <?php   
+  if(isset($_SESSION['loged'])){
+    if($_SESSION['loged'] == true){
+      $account = "<a href='userpanel.php' class='fas fa-user'></a>";
+    }
+    else{
+      $account = "<i class='fas fa-user' id='login-btn'></i>";
+    }
+  }
+  else{
+    $account = "<i class='fas fa-user' id='login-btn'></i>";
+  }
+  ?>
+
   <div class="icons">
     <i class="fas fa-search" id="search-btn"></i>
-    <i class="fas fa-user" id="login-btn"></i>
+    <?php echo $account ?>
   </div>
 
   <form action="reizen.php" class="search-bar-container">

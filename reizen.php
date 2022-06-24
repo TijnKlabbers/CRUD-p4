@@ -31,30 +31,31 @@
       $stmt->bindParam(":destination", $_GET['locationItem']);
   
     }
-    elseif(isset($_GET['bookNow'])){
-      $searchQuery = '%'.$_GET['destination'].'%';
-
-      $sql = "SELECT * FROM flights WHERE destination LIKE :destination
-      AND persons = :persons
-      AND startDate < :startDate
-      AND endDate > :endDate";
-
-      $stmt = $connect->prepare($sql);
-
-      $startDateConverted = date("Y-m-d", strtotime($_GET['startDate']));
-      $endDateConverted = date("Y-m-d", strtotime($_GET['endDate']));
-
-      $stmt->bindParam(":destination", $searchQuery);
-      $stmt->bindParam(":persons", $_GET['persons']);
-      $stmt->bindParam(":startDate", $startDateConverted);
-      $stmt->bindParam(":endDate", $endDateConverted);
-
-    }
     else {
+      if(isset($_GET['bookNow'])){
+        $searchQuery = '%'.$_GET['destination'].'%';
   
-      $sql = "SELECT * FROM flights";
+        $sql = "SELECT * FROM flights WHERE destination LIKE :destination
+        AND persons = :persons
+        AND startDate < :startDate
+        AND endDate > :endDate";
   
-      $stmt = $connect->prepare($sql);
+        $stmt = $connect->prepare($sql);
+  
+        $startDateConverted = date("Y-m-d", strtotime($_GET['startDate']));
+        $endDateConverted = date("Y-m-d", strtotime($_GET['endDate']));
+  
+        $stmt->bindParam(":destination", $searchQuery);
+        $stmt->bindParam(":persons", $_GET['persons']);
+        $stmt->bindParam(":startDate", $startDateConverted);
+        $stmt->bindParam(":endDate", $endDateConverted);
+  
+      }else{
+  
+        $sql = "SELECT * FROM flights";
+  
+        $stmt = $connect->prepare($sql);
+      }
       
     }
   $stmt->execute();
@@ -90,9 +91,11 @@
             $result = $stmt->fetch();
 
             if($result && count($result) > 0){
+              
               if ($result['admin'] == 1) {
                 // sessiON-['admin'] = true;
                 $_SESSION['admin'] = true;
+                $_SESSION['users_id'] = $result['users_id'];
                 header("Location: adminpanel.php");
                 // //sturen naar admin omgeving
                 
@@ -100,6 +103,11 @@
                 // admin = false;
 
                 //sturen naar homepage
+              }
+              else{
+                $_SESSION['userss_id'] = $result['user_id'];
+                $userId = $result['users_id'];
+                header("Location: userpanel.php?user_id=" . $userId);
               }
             }
             else{

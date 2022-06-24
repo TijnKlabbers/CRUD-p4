@@ -33,7 +33,7 @@
     <div class="login-form-container">
         <i class="fas fa-times" id="form-close"></i>
 
-        <form action="overOns.php" method="post">
+        <form class="form2" action="overOns.php" method="post">
         <h3>login</h3>
         <input type="username" class="box" placeholder="enter your username" name="username" required/>
         <input type="password" class="box" placeholder="enter your password" name="password" required/>
@@ -78,26 +78,19 @@
 
     <!-- contact section starts  -->
 
-    <section class="contact" id="contact">
-        <h1 class="heading">
-            <span>ABOUT US</span>
-         
-        </h1>
-
-        <div class="row">
-            <div class="image">
-                <img src="images/overOns.jpg" alt="" />
-            </div>
-
-            <form action="">
-             <p class="tekst">Lorem ipsum dolor sit amet. Aut quidem odit At iste natus ea molestiae ipsum est ipsum omnis. Et alias maxime 33 necessitatibus mollitia aut voluptatibus dolor quo minima expedita ut deleniti veniam vel quasi voluptates. </p>
-             <p class="tekst">Quo optio dolorem et perferendis voluptas ut iste voluptates. Eos debitis dignissimos qui amet voluptatum quo sequi vero nam expedita libero sit velit ullam? Id architecto perspiciatis vel numquam ipsum qui quisquam iusto ut voluptate veniam ea Quis quasi. Aut voluptatem voluptatum eum consequatur asperiores ea libero perspiciatis ut rerum totam. </p>
-             <p class="tekst">Ut omnis esse ab dolorem esse ut commodi voluptate sed provident assumenda est quia quae id ducimus voluptatem. Sed consequatur internos qui nihil libero est tempore magni qui quam sint in rerum ratione. Et harum ipsam ut accusamus officia et officia quisquam qui quos repellat. </p>
-
-                  </p>
-            </form>
-        </div>
-    </section>
+    <section class="flex-section alt-hero-banner">
+   <div class="column-left">
+   <img class="overOnsimg">
+   </div>
+  <div class="column-right">
+          <h1>Shop our most luxurious collection this year</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id ante lacinia, congue ante id, ultricies mauris.</p>
+    <a href="#"><button class="cta-btn">Shop Now<span class="arrow">❯</span></button></a>
+   </div>
+  
+  
+    
+</section>
 
     <!-- contact section ends -->
 
@@ -105,6 +98,7 @@
 
     <!-- custom js file link  -->
     <script src="script.js"></script>
+    <?php include_once "includes/footer.php" ?>
 </body>
 
 </html>

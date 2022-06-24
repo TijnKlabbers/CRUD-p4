@@ -132,12 +132,18 @@
             <?php echo $item['description'] ?>
           </p>
           <ul class="rating">
+            <!-- Gemiddeld ophalen van DEZE SPECIFIEKE REISID - Dan de class ACTIVE geven aan de gemiddelde. Doen met PHP -->
             <li class="rating-item" data-rate="1"></i>
             <li class="rating-item" data-rate="2"></i>
             <li class="rating-item" data-rate="3"></i>
             <li class="rating-item" data-rate="4"></i>
-            <li class="rating-item active" data-rate="5"></i>
+            <li class="rating-item" data-rate="5"></i>
           </ul>
+          <form action='includes/addReview.php' method='post'>
+            <input type='text' name='flights_id' value='<?php echo $item['flights_id'] ?>' />
+            <input type='text' name='stars' id='rating' />
+            <input type='submit' name='submit' id='submit' value='Geef review' />
+          </form>
           <div class="price">$<?php echo $item['price'] ?></div>
           <a href="#" class="btn">book now</a>
         </div>
@@ -147,25 +153,34 @@
 
     <!-- packages section ends -->
 
-
+    <?php include_once "includes/footer.php" ?>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
-      const container = document.querySelector('.rating');
-      const items = container.querySelectorAll('rating-item')
-      container.onclick = e => {
-        const elClass = e.target.classList;
-        if (!elClass.contains('active')){
-          items.forEach(
-            item => item.classList.remove('active')
-          );
-          console.log(e.target.getAttribute("data-rate"));
-          elClass.add('active');
+      const items = document.querySelectorAll('.rating-item')
+      const input = document.querySelector('#rating');
+      const submit = document.querySelector('#submit');
+
+      items.forEach(
+        (item) => {
+          item.addEventListener('click', (e) => {
+            items.forEach(
+              (itempie) => {
+                itempie.classList.remove('active');
+              });
+            const rating = e.target.getAttribute("data-rate");
+            console.log(rating);
+            input.value = rating;
+            item.classList.add('active');
+
+            submit.style.display = 'block';
+          })
         }
-      };
+      );
     </script>
 
     <!-- custom js file link  -->
     <script src="script.js"></script>
+ 
 </body>
 
 </html>

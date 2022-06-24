@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      complete responsive tour and travel agency website design tutorial
 
     </title>
 
@@ -160,5 +159,6 @@
 
    
     <script src="script.js"></script>
+    <?php include_once "includes/footer.php" ?>
   </body>
 </html>

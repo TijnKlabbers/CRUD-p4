@@ -11,9 +11,9 @@
     <a href="contact.php">CONTACT</a>
   </nav>
 
-  <?php  
+  <?php   
   if(isset($_SESSION['loged'])){
-    if($_SESSION['loged'] == false){
+    if($_SESSION['loged'] == true){
       $account = "<a href='userpanel.php' class='fas fa-user'></a>";
     }
     else{

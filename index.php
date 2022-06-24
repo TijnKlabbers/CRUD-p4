@@ -60,7 +60,7 @@
                 header("Location: adminpanel.php");
 
               }
-              elseif($result['admin'] == false){
+              elseif($result['admin'] == 0){
                 $_SESSION['users_id'] = $result['users_id'];
                 $_SESSION['loged'] = true;
                 header("Location: userpanel.php?users_id=" . $result['users_id']);

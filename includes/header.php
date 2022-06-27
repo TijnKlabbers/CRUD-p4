@@ -1,6 +1,7 @@
 <header> 
   <?php include_once "includes/connect.php";?>
   <div id="menu-bar" class="fas fa-bars"></div>
+  <link rel="stylesheet" href="css/style.css" />
 
   <a href="#" class="logo"><span>TRAVEL</span><span></span>point</a>
 

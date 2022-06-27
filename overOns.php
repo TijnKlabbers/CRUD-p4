@@ -82,15 +82,17 @@
 
 
     <!-- contact section starts  -->
+    
 
     <section class="flex-section alt-hero-banner">
+
+      
    <div class="column-left">
-   <img class="overOnsimg">
+   <img class="afbeeldingOverOns" src="images/overOns.jpg">
    </div>
   <div class="column-right">
-          <h1>Shop our most luxurious collection this year</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id ante lacinia, congue ante id, ultricies mauris.</p>
-    <a href="#"><button class="cta-btn">Shop Now<span class="arrow">❯</span></button></a>
+          <h1>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate</h1>
+
    </div>
   
   

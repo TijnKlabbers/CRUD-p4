@@ -144,12 +144,23 @@
           </p>
           <ul class="rating">
             <!-- Gemiddeld ophalen van DEZE SPECIFIEKE REISID - Dan de class ACTIVE geven aan de gemiddelde. Doen met PHP -->
+
+            <li class="rating-item" data-rate="1"></i>
+            <li class="rating-item" data-rate="2"></i>
+            <li class="rating-item" data-rate="3"></i>
+            <li class="rating-item" data-rate="4"></i>
+            <li class="rating-item" data-rate="5"></i>
+          </ul>
+          <form action='includes/addReview.php' method='post'>
+            <input type='text' name='flights_id' value='<?php echo $item['flights_id'] ?>' />
+
             <?php for ($i = 1; $i < 6; $i++){?>
             <li class="rating-item" data-rate="<?php echo $i ?>"></i>
             <?php } ?>
           </ul>
           <form action='includes/addReview.php' method='post'>
             <input type='text' name='flights_id' value='<?php echo $AVGstars['avgstars'] ?>' />
+
             <input type='text' name='stars' id='rating' />
             <input type='submit' name='submit' id='submit' value='Geef review' />
           </form>

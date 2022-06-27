@@ -78,7 +78,7 @@
         <input type="submit" value="login now" class="btn" name="loginButton"/>
         <input type="checkbox" id="remember" />
         <label for="remember">remember me</label>
-        <p>forget password? <a href="#">click here</a></p>
+        <p>forget password? <a href="contact.php">click here</a></p>
         <p>don't have and account? <a href="register.php">register now</a></p>
       </form>
       <?php
@@ -88,32 +88,35 @@
             $stmt->bindParam(":username", $_POST['username']);
             $stmt->bindParam(":password", $_POST['password']);
             $stmt->execute();
-            $result = $stmt->fetch();
+            $login = $stmt->fetch();
 
-            if($result && count($result) > 0){
+            if($login && count($login) > 0){
               
-              if ($result['admin'] == 1) {
-                // sessiON-['admin'] = true;
+              if ($login['admin'] == 1) {
                 $_SESSION['admin'] = true;
-                $_SESSION['users_id'] = $result['users_id'];
+                $_SESSION['users_id'] = $login['users_id'];
                 header("Location: adminpanel.php");
-                // //sturen naar admin omgeving
-                
-                //          } else {
-                // admin = false;
 
-                //sturen naar homepage
+              }
+              elseif($login['admin'] == 0){
+                $_SESSION['users_id'] = $login['users_id'];
+                $_SESSION['loged'] = true;
+                header("Location: userpanel.php?users_id=" . $login['users_id']);
               }
               else{
-                $_SESSION['userss_id'] = $result['user_id'];
-                $userId = $result['users_id'];
-                header("Location: userpanel.php?user_id=" . $userId);
+                header("Location: index.php");
+
               }
             }
             else{
               header("Location: index.php");
             }
           }
+
+          $sql = "SELECT AVG(stars) as avgstars FROM reviews WHERE flights_id = flights_id";
+          $stmt = $connect->prepare($sql);
+          $stmt->execute();
+          $AVGstars = $stmt->fetch();
       ?>
   </div>
 
@@ -141,19 +144,36 @@
           </p>
           <ul class="rating">
             <!-- Gemiddeld ophalen van DEZE SPECIFIEKE REISID - Dan de class ACTIVE geven aan de gemiddelde. Doen met PHP -->
-            <li class="rating-item" data-rate="1"></i>
-            <li class="rating-item" data-rate="2"></i>
-            <li class="rating-item" data-rate="3"></i>
-            <li class="rating-item" data-rate="4"></i>
-            <li class="rating-item" data-rate="5"></i>
+            <?php for ($i = 1; $i < 6; $i++){?>
+            <li class="rating-item" data-rate="<?php echo $i ?>"></i>
+            <?php } ?>
           </ul>
           <form action='includes/addReview.php' method='post'>
-            <input type='text' name='flights_id' value='<?php echo $item['flights_id'] ?>' />
+            <input type='text' name='flights_id' value='<?php echo $AVGstars['avgstars'] ?>' />
             <input type='text' name='stars' id='rating' />
             <input type='submit' name='submit' id='submit' value='Geef review' />
           </form>
           <div class="price">$<?php echo $item['price'] ?></div>
-          <a href="#" class="btn">book now</a>
+          <form action="#" method="post">
+            <button name="book">Book now</button>
+          </form>
+          <?php
+          if(isset($_POST['book'])){
+
+            $users_id = $_SESSION['users_id'];
+
+            $sql = "INSERT INTO bookingen (users_id, flights_id)
+            VALUES (:users_id, :flights_id)";
+
+            $stmt = $connect->prepare($sql);
+
+            $stmt->bindParam(":users_id", $users_id);
+            $stmt->bindParam(":flights_id", $item['flights_id']);
+
+            $stmt->execute();
+            header("Location: userpanel.php");
+          }
+          ?>
         </div>
       </div>
       <?php } ?>

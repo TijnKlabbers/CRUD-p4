@@ -40,7 +40,7 @@
         <input type="submit" value="login now" class="btn" name="loginButton"/>
         <input type="checkbox" id="remember" />
         <label for="remember">remember me</label>
-        <p>forget password? <a href="#">click here</a></p>
+        <p>forget password? <a href="contact.php">click here</a></p>
         <p>don't have and account? <a href="register.php">register now</a></p>
       </form>
       <?php
@@ -53,16 +53,21 @@
             $result = $stmt->fetch();
 
             if($result && count($result) > 0){
+              
               if ($result['admin'] == 1) {
-                // sessiON-['admin'] = true;
                 $_SESSION['admin'] = true;
+                $_SESSION['users_id'] = $result['users_id'];
                 header("Location: adminpanel.php");
-                // //sturen naar admin omgeving
-                
-                //          } else {
-                // admin = false;
 
-                //sturen naar homepage
+              }
+              elseif($result['admin'] == 0){
+                $_SESSION['users_id'] = $result['users_id'];
+                $_SESSION['loged'] = true;
+                header("Location: userpanel.php?users_id=" . $result['users_id']);
+              }
+              else{
+                header("Location: index.php");
+
               }
             }
             else{

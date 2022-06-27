@@ -39,7 +39,7 @@
         <input type="submit" value="login now" class="btn" name="loginButton"/>
         <input type="checkbox" id="remember" />
         <label for="remember">remember me</label>
-        <p>forget password? <a href="#">click here</a></p>
+        <p>forget password? <a href="contact.php">click here</a></p>
         <p>don't have and account? <a href="register.php">register now</a></p>
       </form>
       <?php

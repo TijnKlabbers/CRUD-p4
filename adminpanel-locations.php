@@ -123,7 +123,7 @@
             $stmt = $connect->prepare($sql);
             $stmt->bindParam(":id", $_POST['id']);
             $stmt->execute();
-            header("Location: adminpanel-locations.php");
+            header("Location: adminpanel.php");
             }
             ?>
             </form>

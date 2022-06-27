@@ -42,9 +42,7 @@
         $stmt->bindParam(":endDate", $endDateConverted);
         $stmt->bindParam(":image", $_POST['image']);
         $stmt->execute();
-    } else {
-        echo 'fiut';
-    }
+    }   
     ?>
     <a href="adminpanel-locations.php">back</a>
 </body>

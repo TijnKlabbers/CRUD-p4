@@ -18,7 +18,12 @@
 <body> 
 
      <header>
-     <?php include_once "includes/header.php";?>
+     <?php include_once "includes/header.php";
+     $sql = "SELECT * FROM bookingen";
+     $stmt = $connect->prepare($sql);
+     $stmt->execute();
+     $result = $stmt->fetchAll();
+     ?>
     </header>
 
     <!-- header section ends -->
@@ -41,9 +46,6 @@
             </div>
 
             <form action="#" method="post">
-             <p class="tekst">Lorem ipsum dolor sit amet. Aut quidem odit At iste natus ea molestiae ipsum est ipsum omnis. Et alias maxime 33 necessitatibus mollitia aut voluptatibus dolor quo minima expedita ut deleniti veniam vel quasi voluptates. </p>
-             <p class="tekst">Quo optio dolorem et perferendis voluptas ut iste voluptates. Eos debitis dignissimos qui amet voluptatum quo sequi vero nam expedita libero sit velit ullam? Id architecto perspiciatis vel numquam ipsum qui quisquam iusto ut voluptate veniam ea Quis quasi. Aut voluptatem voluptatum eum consequatur asperiores ea libero perspiciatis ut rerum totam. </p>
-             <p class="tekst">Ut omnis esse ab dolorem esse ut commodi voluptate sed provident assumenda est quia quae id ducimus voluptatem. Sed consequatur internos qui nihil libero est tempore magni qui quam sint in rerum ratione. Et harum ipsam ut accusamus officia et officia quisquam qui quos repellat. </p>
             <button name="logout">logout</button>
             </form>
             <?php if(isset($_POST['logout'])){

@@ -142,18 +142,11 @@
           <p>
             <?php echo $item['description'] ?>
           </p>
-          <ul class="rating">
-            <!-- Gemiddeld ophalen van DEZE SPECIFIEKE REISID - Dan de class ACTIVE geven aan de gemiddelde. Doen met PHP -->
 
-            <li class="rating-item" data-rate="1"></i>
-            <li class="rating-item" data-rate="2"></i>
-            <li class="rating-item" data-rate="3"></i>
-            <li class="rating-item" data-rate="4"></i>
-            <li class="rating-item" data-rate="5"></i>
-          </ul>
+            <!-- Gemiddeld ophalen van DEZE SPECIFIEKE REISID - Dan de class ACTIVE geven aan de gemiddelde. Doen met PHP -->
           <form action='includes/addReview.php' method='post'>
             <input type='text' name='flights_id' value='<?php echo $item['flights_id'] ?>' />
-
+          <ul class="rating">
             <?php for ($i = 1; $i < 6; $i++){?>
             <li class="rating-item" data-rate="<?php echo $i ?>"></i>
             <?php } ?>
@@ -166,7 +159,13 @@
           </form>
           <div class="price">$<?php echo $item['price'] ?></div>
           <form action="#" method="post">
+            <?php 
+            if(isset($_SESSION['loged'])){
+              if($_SESSION['loged'] == true){ ?>
             <button name="book">Book now</button>
+            <?php }} else {?>
+              <p>Log in</p>
+           <?php } ?>
           </form>
           <?php
           if(isset($_POST['book'])){

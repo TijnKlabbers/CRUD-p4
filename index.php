@@ -128,7 +128,7 @@
 
           <div class="inputBox">
             <h3>where to</h3>
-            <select name="destination">
+            <select name="destination" required>
               <?php foreach($destinationResult as $item){ ?>
               <option><?php echo $item['destination'] ?></option>
                 <?php } ?>
@@ -136,7 +136,7 @@
           </div>
           <div class="inputBox">
             <h3>how many guests</h3>
-            <select name="persons">
+            <select name="persons" required>
               <option>0</option>
               <option>1</option>
               <option>2</option>
@@ -145,11 +145,11 @@
           </div>
           <div class="inputBox">
             <h3>arrivals</h3>
-            <input type="date" name="startDate"/>
+            <input type="date" name="startDate" required/>
           </div>
           <div class="inputBox">
             <h3>leaving</h3>
-            <input type="date" name="endDate"/>
+            <input type="date" name="endDate" required/>
           </div>
           <input type="submit" class="btn" value="book now" name="bookNow"/>
         </form>

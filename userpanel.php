@@ -18,12 +18,24 @@
 <body> 
 
      <header>
-     <?php include_once "includes/header.php";
-     $sql = "SELECT * FROM bookingen";
-     $stmt = $connect->prepare($sql);
-     $stmt->execute();
-     $result = $stmt->fetchAll();
-     ?>
+    <?php include_once "includes/header.php";
+
+    $sql = "SELECT * FROM bookingen WHERE users_id = " . $_SESSION['users_id'] . " LIMIT 1";
+    $stmt = $connect->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+
+    foreach($result as $item){
+        $booking = $item['flights_id'];
+    }
+
+    $sql = "SELECT * FROM flights WHERE flights_id = " . $booking . " LIMIT 1";
+    $stmt = $connect->prepare($sql);
+    $stmt->execute();
+    $flight = $stmt->fetchAll();
+
+
+    ?>
     </header>
 
     <!-- header section ends -->
@@ -37,21 +49,40 @@
     <section class="contact" id="contact">
         <h1 class="heading">
             <span>Account</span>
-         
         </h1>
-
+        <form action="#" method="post">
+        <button name="logout">logout</button>
+        <a href="userpanel-edit.php">Edit Account</a>
+        </form>
+        <?php if(isset($_POST['logout'])){
+                session_destroy();
+                header('Location: index.php');
+            } ?>
         <div class="row">
             <div class="image">
                 <img src="images/overOns.jpg" alt="" />
             </div>
-
-            <form action="#" method="post">
-            <button name="logout">logout</button>
+            <form action="#">
+            <?php foreach($flight as $item){ ?>
+                <h1><?php echo $item['destination']; ?></h1>
+                <p>€ <?php echo $item['price']; ?></p>
+                <p>Start date: <?php echo $item['startDate']; ?></p>
+                <p>End date:<?php echo $item['endDate']; ?></p>
+                <p>Persons: <?php echo $item['persons']; ?></p>
+                <form action="#" method="post">
+                    <button name="cancel">Cancel</button>
+                </form>
+            <?php
+            $flights_id = $item['flights_id'];
+            }
+            if(isset($_POST['cancel'])){
+                $sql = "DELETE FROM bookingen WHERE flights_id = " . $flights_id . "";
+                $stmt = $connect->prepare($sql);
+                $stmt->execute();
+                header("Location: userpanel.php");
+            }
+            ?>
             </form>
-            <?php if(isset($_POST['logout'])){
-                session_destroy();
-                header('Location: index.php');
-            } ?>
         </div>
     </section>
 

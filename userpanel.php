@@ -53,8 +53,8 @@
             <span>Account</span>
         </h1>
         <form action="#" method="post">
-        <button name="logout">logout</button>
-        <a href="userpanel-edit.php">Edit Account</a>
+        <button class="logoutName" name="logout">logout</button>
+        <a class="edit" href="userpanel-edit.php">Edit Account</a>
         </form>
         <?php if(isset($_POST['logout'])){
                 session_destroy();

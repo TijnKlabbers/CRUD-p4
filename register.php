@@ -12,12 +12,14 @@
   <?php include_once "includes/connect.php" ?>
   <div class="wrapper">
     <h2>Registration</h2>
-    <form action="#" method="post">
+    <form id="form" action="#" method="post">
       <div class="input-box">
-        <input name="username" type="text" placeholder="Enter your name" required>
+        <input id="username" name="username" type="text" placeholder="Enter your name" required>
+      <div class="error"></div>
       </div>
       <div class="input-box">
-        <input name="password" type="password" placeholder="Create password" required>
+        <input id="password" name="password" type="password" placeholder="Create password" required>
+        <div class="error"></div>
       </div>
 
       <div class="policy">
@@ -47,5 +49,6 @@
     ?>
   </div>
   <?php include_once "includes/footer.php" ?>
+  <script src="js/register.js"></script>
 </body>
 </html>

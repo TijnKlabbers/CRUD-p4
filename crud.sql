@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 15 jun 2022 om 14:18
+-- Gegenereerd op: 28 jun 2022 om 10:02
 -- Serverversie: 10.4.22-MariaDB
 -- PHP-versie: 8.1.1
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `crud`
 --
-CREATE DATABASE IF NOT EXISTS `crud` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `crud`;
 
 -- --------------------------------------------------------
 
@@ -30,7 +28,9 @@ USE `crud`;
 --
 
 CREATE TABLE `bookingen` (
-  `bookingen_id` int(11) NOT NULL
+  `bookingen_id` int(11) NOT NULL,
+  `users_id` int(11) NOT NULL,
+  `flights_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -55,7 +55,8 @@ CREATE TABLE `contact` (
 INSERT INTO `contact` (`contact_id`, `naam`, `email`, `bericht`, `telefoonNummer`, `subject`) VALUES
 (1, 'kelvin', 'kelvinlvb2002@hotmail.com', 'fkjehkjfhsjekhfkjwhf', 639116467, 'travel'),
 (2, 'kelvin', 'kelvinlvb2002@hotmail.com', 'fkjehkjfhsjekhfkjwhf', 639116467, 'travel'),
-(6, 'kelvin', 'kelvinlvb2002@hotmail.com', 'haoi ij oj fje jf9j', 2147483647, 'travel');
+(6, 'kelvin', 'kelvinlvb2002@hotmail.com', 'haoi ij oj fje jf9j', 2147483647, 'travel'),
+(7, 'kelvin', 'kelvinlvb2002@hotmail.com', 'djioiwjdoiwjdoijawoidjoaiwjdoiajwoidjaoiwjoidjawoijfojngjhbrjfbrgrg', 123456789, 'travel');
 
 -- --------------------------------------------------------
 
@@ -79,14 +80,7 @@ CREATE TABLE `flights` (
 --
 
 INSERT INTO `flights` (`flights_id`, `description`, `price`, `startDate`, `endDate`, `persons`, `destination`, `image`) VALUES
-(1, 'text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in', '120.00', '2022-06-13', '2022-06-16', 3, 'Spain', 'https://images.unsplash.com/photo-1495562569060-2eec283d3391?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'),
-(2, 'text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic', '130.00', '2022-06-20', '2022-06-30', 2, 'China', 'https://images.unsplash.com/photo-1508804052814-cd3ba865a116?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'),
-(3, 'Text Ever Since The 1500s, When An Unknown Printer Took A Galley Of Type And Scrambled It To Make A Type Specimen Book. It Has Survived Not Only Five Centuries, But Also The Leap Into Electronic Typesetting, Remaining Essentially Unchanged. It Was Popularised In', '200.00', '2022-06-20', '2022-06-30', 2, 'paris', 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=873&q=80'),
-(4, 'iojfewoiejoiejoifjoisjfoijseoifjsoeijfoisejfoijse', '100.00', '2022-06-21', '2022-06-23', 3, 'china', 'https://images.unsplash.com/photo-1508804052814-cd3ba865a116?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'),
-(5, 'iojfewoiejoiejoifjoisjfoijseoifjsoeijfoisejfoijse', '100.00', '2022-06-21', '2022-06-23', 3, 'china', 'https://images.unsplash.com/photo-1508804052814-cd3ba865a116?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'),
-(6, 'adfasdf', '10.00', '2022-06-15', '2022-06-18', 2, 'asfs', 'dsfsdf'),
-(7, 'adfasdf', '10.00', '2022-06-15', '2022-06-18', 2, 'asfs', 'dsfsdf'),
-(8, 'adfasdf', '10.00', '2022-06-15', '2022-06-18', 2, 'asfs', 'dsfsdf');
+(11, 'ouhuhriuriudg', '150.00', '2022-06-23', '2022-06-27', 2, 'china', 'https://images.unsplash.com/photo-1508804052814-cd3ba865a116?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
 
 -- --------------------------------------------------------
 
@@ -96,9 +90,23 @@ INSERT INTO `flights` (`flights_id`, `description`, `price`, `startDate`, `endDa
 
 CREATE TABLE `reviews` (
   `reviews_id` int(11) NOT NULL,
-  `titel` int(11) NOT NULL,
-  `datum` int(11) NOT NULL
+  `flights_id` int(11) NOT NULL,
+  `stars` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `reviews`
+--
+
+INSERT INTO `reviews` (`reviews_id`, `flights_id`, `stars`) VALUES
+(4, 1, 3),
+(5, 1, 4),
+(6, 4, 4),
+(7, 4, 0),
+(8, 4, 5),
+(9, 4, 2),
+(10, 3, 2),
+(11, 3, 0);
 
 -- --------------------------------------------------------
 
@@ -120,7 +128,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`users_id`, `username`, `password`, `admin`) VALUES
 (1, 'admin', 'admin', 1),
 (2, 'kelvin', 'kelvin', 0),
-(3, 'kelvin', 'kelvin', 0);
+(4, 'tijn', 'tijn', 0);
 
 --
 -- Indexen voor geëxporteerde tabellen
@@ -164,41 +172,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT voor een tabel `bookingen`
 --
 ALTER TABLE `bookingen`
-  MODIFY `bookingen_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `bookingen_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT voor een tabel `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `contact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `contact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT voor een tabel `flights`
 --
 ALTER TABLE `flights`
-  MODIFY `flights_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `flights_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT voor een tabel `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `reviews_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `reviews_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT voor een tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `users_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- Beperkingen voor geëxporteerde tabellen
---
-
---
--- Beperkingen voor tabel `reviews`
---
-ALTER TABLE `reviews`
-  ADD CONSTRAINT `users` FOREIGN KEY (`reviews_id`) REFERENCES `users` (`users_id`);
+  MODIFY `users_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

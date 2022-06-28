@@ -32,10 +32,10 @@
       <i class="fas fa-times" id="form-close"></i>
 
 
-      <form action="index.php" method="post">
+      <form id="form" action="index.php" method="post">
         <h3>login</h3>
-        <input type="username" class="box" placeholder="enter your username" name="username" required/>
-        <input type="password" class="box" placeholder="enter your password" name="password" required/>
+        <input id="username" type="username" class="box" placeholder="enter your username" name="username" required/>
+        <input id="password" type="password" class="box" placeholder="enter your password" name="password" required/>
         <input type="submit" value="login now" class="btn" name="loginButton"/>
         <input type="checkbox" id="remember" />
         <label for="remember">remember me</label>
@@ -162,5 +162,6 @@
    
     <script src="script.js"></script>
     <?php include_once "includes/footer.php" ?>
+    <script src="js/login.js"></script>
   </body>
 </html>

@@ -101,6 +101,7 @@
               elseif($login['admin'] == 0){
                 $_SESSION['users_id'] = $login['users_id'];
                 $_SESSION['loged'] = true;
+                
                 header("Location: userpanel.php?users_id=" . $login['users_id']);
               }
               else{
@@ -145,7 +146,7 @@
 
             <!-- Gemiddeld ophalen van DEZE SPECIFIEKE REISID - Dan de class ACTIVE geven aan de gemiddelde. Doen met PHP -->
           <form action='includes/addReview.php' method='post'>
-            <input type='text' name='flights_id' value='<?php echo $item['flights_id'] ?>' />
+            <input type='hidden' name='flights_id' value='<?php echo $item['flights_id'] ?>' />
           <ul class="rating">
             <?php for ($i = 1; $i < 6; $i++){?>
             <li class="rating-item" data-rate="<?php echo $i ?>"></i>
@@ -170,14 +171,13 @@
           <?php
           if(isset($_POST['book'])){
 
-            $users_id = $_SESSION['users_id'];
 
             $sql = "INSERT INTO bookingen (users_id, flights_id)
             VALUES (:users_id, :flights_id)";
 
             $stmt = $connect->prepare($sql);
 
-            $stmt->bindParam(":users_id", $users_id);
+            $stmt->bindParam(":users_id", $_SESSION['users_id']);
             $stmt->bindParam(":flights_id", $item['flights_id']);
 
             $stmt->execute();

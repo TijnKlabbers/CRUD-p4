@@ -64,24 +64,24 @@
             <div class="image">
                 <img src="images/overOns.jpg" alt="" />
             </div>
-            <form action="#">
+            <form action="#" method="post">
             <?php foreach($flight as $item){ ?>
+                <input type="hidden" name="booking" value="<?php echo $item['flights_id'] ?>">
                 <h1><?php echo $item['destination']; ?></h1>
                 <p>€ <?php echo $item['price']; ?></p>
                 <p>Start date: <?php echo $item['startDate']; ?></p>
                 <p>End date:<?php echo $item['endDate']; ?></p>
                 <p>Persons: <?php echo $item['persons']; ?></p>
-
                 <form action="#" method="post">
+                    <input type='hidden' value="<?php $item['flights_id']; ?>" name="flights_id" />
                     <button name="cancel">Cancel</button>
                 </form>
             <?php
-            $flights_id = $item['flights_id'];
             }
             if(isset($_POST['cancel'])){
                 $sql = "DELETE FROM bookingen WHERE flights_id = :flights_id";
                 $stmt = $connect->prepare($sql);
-                $stmt->bindParam(":flights_id", $flights_id);
+                $stmt->bindParam(":flights_id", $_POST['booking']);
                 $stmt->execute();
                 header("Location: userpanel.php");
             }

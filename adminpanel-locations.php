@@ -113,7 +113,7 @@
           </ul>
           <ul>
             <li class="topic">delete</li>
-            <form action="adminpanel-locations.php" method="post">
+            <form action="#" method="post">
             <?php foreach($result as $item){?>
             <input type="hidden" name="id" value="<?php echo $item['flights_id'] ?>">
             <li><button class="delete" name="delete">delete</button></li>

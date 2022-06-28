@@ -20,8 +20,9 @@
      <header>
     <?php include_once "includes/header.php";
 
-    $sql = "SELECT * FROM bookingen WHERE users_id = " . $_SESSION['users_id'] . " LIMIT 1";
+    $sql = "SELECT * FROM bookingen WHERE users_id = :users_id LIMIT 1";
     $stmt = $connect->prepare($sql);
+    $stmt->bindParam(":users_id", $_SESSION['users_id']);
     $stmt->execute();
     $result = $stmt->fetchAll();
 
@@ -29,8 +30,9 @@
         $booking = $item['flights_id'];
     }
 
-    $sql = "SELECT * FROM flights WHERE flights_id = " . $booking . " LIMIT 1";
+    $sql = "SELECT * FROM flights WHERE flights_id = :booking LIMIT 1";
     $stmt = $connect->prepare($sql);
+    $stmt->bindParam(":booking", $booking);
     $stmt->execute();
     $flight = $stmt->fetchAll();
 
@@ -69,6 +71,7 @@
                 <p>Start date: <?php echo $item['startDate']; ?></p>
                 <p>End date:<?php echo $item['endDate']; ?></p>
                 <p>Persons: <?php echo $item['persons']; ?></p>
+
                 <form action="#" method="post">
                     <button name="cancel">Cancel</button>
                 </form>
@@ -76,8 +79,9 @@
             $flights_id = $item['flights_id'];
             }
             if(isset($_POST['cancel'])){
-                $sql = "DELETE FROM bookingen WHERE flights_id = " . $flights_id . "";
+                $sql = "DELETE FROM bookingen WHERE flights_id = :flights_id";
                 $stmt = $connect->prepare($sql);
+                $stmt->bindParam(":flights_id", $flights_id);
                 $stmt->execute();
                 header("Location: userpanel.php");
             }

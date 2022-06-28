@@ -9,28 +9,42 @@
     
    </head>
 <body>
-  
+  <?php include_once "includes/connect.php" ?>
   <div class="wrapper">
     <h2>Registration</h2>
-    <form action="#">
+    <form action="#" method="post">
       <div class="input-box">
-        <input type="text" placeholder="Enter your name" required>
+        <input name="username" type="text" placeholder="Enter your name" required>
       </div>
       <div class="input-box">
-        <input type="password" placeholder="Create password" required>
+        <input name="password" type="password" placeholder="Create password" required>
       </div>
 
       <div class="policy">
-        <input type="checkbox">
+        <input type="checkbox" required>
         <h3>I accept all terms & condition</h3>
       </div>
       <div class="input-box button">
-        <input type="Submit" value="Register Now">
+        <input name="submit" type="Submit" value="Register Now">
       </div>
       <div class="text">
         <h3>Already have an account? <a href="index.php">Login now</a></h3>
       </div>
     </form>
+    <?php 
+      if(isset($_POST['submit'])){
+        
+        $sql = "INSERT INTO users (username, password)
+        VALUES (:username, :password)";
+  
+        $stmt = $connect->prepare($sql);
+        $stmt->bindParam(":username", $_POST['username']);
+        $stmt->bindParam(":password", $_POST['password']);
+
+        $stmt->execute();
+        header("index.php");
+      }
+    ?>
   </div>
   <?php include_once "includes/footer.php" ?>
 </body>

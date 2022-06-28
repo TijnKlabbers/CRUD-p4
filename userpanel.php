@@ -70,13 +70,13 @@
                 <p>End date:<?php echo $item['endDate']; ?></p>
                 <p>Persons: <?php echo $item['persons']; ?></p>
                 <form action="#" method="post">
+                    <input type='hidden' value="<?php $item['flights_id']; ?>" name="flights_id" />
                     <button name="cancel">Cancel</button>
                 </form>
             <?php
-            $flights_id = $item['flights_id'];
             }
             if(isset($_POST['cancel'])){
-                $sql = "DELETE FROM bookingen WHERE flights_id = " . $flights_id . "";
+                $sql = "DELETE FROM bookingen WHERE flights_id = " . $_POST['flights_id'] . "";
                 $stmt = $connect->prepare($sql);
                 $stmt->execute();
                 header("Location: userpanel.php");
